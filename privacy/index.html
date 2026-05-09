@@ -3,30 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>개인정보 처리 방침 · thingineeer</title>
-<meta name="description" content="thingineeer 가 만든 앱들 (공포지수 · PumpWater · CozyDay) 의 공용 개인정보 처리 방침." />
+<title>개인정보 처리방침 · thingineeer</title>
+<meta name="description" content="thingineeer 가 만든 앱들 (공포지수 · PumpWater · CozyDay) 의 공용 개인정보 처리방침." />
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/fearindex.png" />
 <link rel="icon" type="image/png" href="../assets/icons/fearindex.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
   :root{
     --accent:#cc785c;
-    --accent-deep:#a9583e;
     --ink:#1a1a1a; --ink-2:#3d3d3a;
     --muted:#6e6e73;
-    --hairline:#e5e3df; --hairline-strong:#c8c4be;
+    --hairline:#e5e3df;
     --canvas:#ffffff;
     --canvas-cream:#faf6f0;
     --canvas-parchment:#f6f5f4;
-    --sans:'Inter',"SF Pro Text","SF Pro Display",system-ui,-apple-system,'Apple SD Gothic Neo','Pretendard',sans-serif;
+    --sans:'Inter',"SF Pro Text",system-ui,-apple-system,'Apple SD Gothic Neo','Pretendard',sans-serif;
     --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
     --nav-h:60px;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{background:var(--canvas);color:var(--ink-2);font-family:var(--sans);font-size:17px;line-height:1.7;letter-spacing:-0.1px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;word-break:keep-all;}
+  body{background:var(--canvas);color:var(--ink-2);font-family:var(--sans);font-size:17px;line-height:1.7;letter-spacing:-0.1px;-webkit-font-smoothing:antialiased;word-break:keep-all;}
   a{color:var(--accent);text-decoration:none;}
   a:hover{text-decoration:underline;}
 
@@ -37,70 +35,39 @@
   .nav ul a{font-size:14px;font-weight:500;color:var(--ink);}
   .nav ul a:hover{color:var(--accent);text-decoration:none;}
 
-  .hero{
-    padding:80px 24px 56px;
-    background:linear-gradient(180deg,var(--canvas-cream) 0%,var(--canvas) 100%);
-    text-align:center;
+  main{
+    max-width:680px;margin:0 auto;
+    padding:96px 24px 96px;
   }
-  .hero-inner{max-width:780px;margin:0 auto;}
   .meta{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--muted);margin-bottom:16px;}
   .meta::before{content:"// ";color:var(--accent);}
   h1{font-size:48px;font-weight:600;line-height:1.1;letter-spacing:-0.6px;color:var(--ink);}
-  .lead{font-size:18px;color:var(--ink-2);margin-top:18px;line-height:1.55;}
-
-  .doc{max-width:780px;margin:0 auto;padding:64px 24px 96px;}
-  .doc section{margin-top:48px;}
-  .doc section:first-child{margin-top:0;}
-  h2{font-size:24px;font-weight:600;line-height:1.3;letter-spacing:-0.3px;color:var(--ink);margin-bottom:14px;display:flex;align-items:baseline;gap:10px;}
-  h2 .num{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent);letter-spacing:0;}
-  h3{font-size:17px;font-weight:600;color:var(--ink);margin:20px 0 8px;}
-  p{margin-top:8px;color:var(--ink-2);}
-  ul{margin:12px 0 0 0;padding-left:1.2em;}
-  ul li{margin-top:4px;color:var(--ink-2);}
-  strong{color:var(--ink);font-weight:600;}
-
+  .date{font-family:var(--mono);font-size:14px;color:var(--muted);margin-top:14px;}
   .scope{
-    background:var(--canvas-parchment);
-    border:1px solid var(--hairline);
-    border-radius:18px;
-    padding:24px 28px;
-    margin-bottom:8px;
-  }
-  .scope h2{font-size:15px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px;}
-  .scope ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;}
-  .scope ul li{display:flex;align-items:center;gap:12px;color:var(--ink);font-weight:500;}
-  .scope ul li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);}
-  .scope .platforms{font-family:var(--mono);font-size:12px;color:var(--muted);font-weight:400;}
-
-  table{width:100%;border-collapse:collapse;margin-top:16px;font-size:15px;}
-  thead th{
-    text-align:left;padding:12px 14px;
-    background:var(--canvas-parchment);
-    color:var(--ink);font-weight:600;
-    border:1px solid var(--hairline);
-    font-size:14px;
-  }
-  tbody td{padding:12px 14px;border:1px solid var(--hairline);color:var(--ink-2);vertical-align:top;}
-  tbody td.app{font-weight:600;color:var(--ink);white-space:nowrap;}
-  tbody td.yes{color:var(--accent);font-weight:500;}
-  tbody td.no{color:var(--muted);}
-
-  .meta-box{
+    margin-top:32px;
+    padding:18px 22px;
     background:var(--canvas-parchment);
     border:1px solid var(--hairline);
     border-radius:14px;
-    padding:20px 24px;
-    margin-top:48px;
-    font-family:var(--mono);
-    font-size:13px;
-    color:var(--ink-2);
-    display:flex;flex-direction:column;gap:6px;
+    font-size:15px;color:var(--ink);
   }
-  .meta-box span strong{color:var(--accent);font-weight:500;margin-right:8px;}
-  .meta-box span strong::before{content:"// ";}
+  .scope strong{font-weight:600;}
+  p{margin-top:24px;}
+  .lang-en{color:var(--ink-2);}
+  .note{
+    margin-top:28px;
+    font-size:14px;color:var(--muted);
+    padding-left:14px;border-left:2px solid var(--accent);
+  }
+  .contact{
+    margin-top:48px;
+    font-family:var(--mono);font-size:13px;color:var(--ink-2);
+  }
+  .contact strong{color:var(--accent);font-weight:500;margin-right:8px;}
+  .contact strong::before{content:"// ";}
 
   .footer{background:var(--canvas);border-top:1px solid var(--hairline);padding:32px 24px;}
-  .footer-inner{max-width:780px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--muted);}
+  .footer-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--muted);}
   .footer-inner .brand{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:14px;letter-spacing:-0.1px;}
   .footer-inner .legal{flex:1;font-family:var(--sans);font-size:12px;letter-spacing:-0.1px;}
   .footer-inner a{color:var(--muted);}
@@ -109,16 +76,10 @@
   @media (max-width:734px){
     body{font-size:16px;}
     .nav{padding:0 20px;}
-    .hero{padding:64px 20px 48px;}
+    main{padding:64px 20px 72px;}
     h1{font-size:32px;letter-spacing:-0.4px;}
-    .lead{font-size:16px;}
-    .doc{padding:48px 20px 72px;}
-    .doc section{margin-top:36px;}
-    h2{font-size:21px;}
-    .scope{padding:20px;}
-    table{font-size:13px;}
-    thead th, tbody td{padding:10px;}
-    .meta-box{padding:16px 18px;font-size:12px;}
+    .scope{font-size:14px;padding:16px 18px;}
+    p{margin-top:20px;}
     .footer{padding:24px 20px;}
   }
 </style>
@@ -133,138 +94,31 @@
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-inner">
-    <p class="meta">privacy policy</p>
-    <h1>개인정보 처리 방침</h1>
-    <p class="lead">thingineeer 가 만든 앱들의 공용 개인정보 처리 방침입니다.</p>
-  </div>
-</section>
-
-<main class="doc">
+<main>
+  <p class="meta">privacy policy</p>
+  <h1>개인정보 처리방침</h1>
+  <p class="date">2026. 5. 10</p>
 
   <div class="scope">
-    <h2>적용 범위</h2>
-    <ul>
-      <li>공포지수 — Fear &amp; Greed Index <span class="platforms">iOS · Android</span></li>
-      <li>PumpWater <span class="platforms">iOS</span></li>
-      <li>CozyDay <span class="platforms">iOS</span></li>
-    </ul>
+    <strong>적용 앱:</strong> 공포지수 · PumpWater · CozyDay
   </div>
 
-  <section>
-    <h2><span class="num">01</span> 개인정보 수집</h2>
-    <p>본 앱들은 사용자의 <strong>개인정보를 수집하지 않습니다</strong>. 모든 데이터는 사용자의 기기 내부에서만 처리되며, 외부 서버로 전송되지 않습니다.</p>
-    <ul>
-      <li>사용자 계정, 로그인, 회원가입 기능을 제공하지 않습니다.</li>
-      <li>사용자 행동 추적 및 분석 도구를 사용하지 않습니다.</li>
-      <li>위치 정보, 연락처, 사진, 마이크 등 시스템 권한을 요청하지 않습니다.</li>
-    </ul>
-  </section>
+  <p>
+    'thingineeer' 의 앱들 및 본 웹사이트는 이용자의 이용 기록, IP 주소를 포함한 어떠한 정보도 수집하지 않으며, 관련 데이터를 저장하거나 처리하는 장치도 보유하지 않습니다. 대한민국 「개인정보 보호법」 제2조에서 정한 '개인정보처리자'에 해당하지 않으므로 개인정보 처리방침을 제공하지 않습니다.
+  </p>
 
-  <section>
-    <h2><span class="num">02</span> 외부 통신 및 광고</h2>
-    <p>앱 동작에 필요한 최소한의 외부 통신 및 광고 사용 여부는 다음과 같습니다.</p>
-    <table>
-      <thead>
-        <tr>
-          <th>앱</th>
-          <th>외부 API</th>
-          <th>광고</th>
-          <th>네트워크 필요</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="app">공포지수</td>
-          <td>Fear &amp; Greed Index 공개 API · 시장 지수 데이터</td>
-          <td class="yes">Google AdMob</td>
-          <td class="yes">필요</td>
-        </tr>
-        <tr>
-          <td class="app">PumpWater</td>
-          <td>—</td>
-          <td class="no">사용 안 함</td>
-          <td class="no">불필요</td>
-        </tr>
-        <tr>
-          <td class="app">CozyDay</td>
-          <td>—</td>
-          <td class="no">사용 안 함</td>
-          <td class="no">불필요</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="margin-top:14px">공포지수 앱은 광고 표시를 위해 Google AdMob 을 사용합니다. AdMob 은 광고 식별자 (IDFA / AAID) 를 사용해 광고를 게재하며, 자세한 내용은 <a href="https://policies.google.com/technologies/ads">Google 광고 정책</a> 을 참고하세요. 사용자는 iOS/Android 시스템 설정에서 광고 식별자를 재설정하거나 추적을 끌 수 있습니다.</p>
-    <p>네트워크 요청 시 사용자를 식별할 수 있는 정보는 포함되지 않습니다.</p>
-  </section>
+  <p class="lang-en">
+    The 'thingineeer' apps and this website do not collect any information, including users' usage records or IP addresses, nor do they operate or retain any systems that store or process such data. Accordingly, we are not classified as a 'personal information controller' under the Personal Information Protection Act of the Republic of Korea, and therefore, a privacy policy is not provided.
+  </p>
 
-  <section>
-    <h2><span class="num">03</span> 보유 및 이용 기간</h2>
-    <p>본 앱들은 개인정보를 수집하지 않으므로 보유하는 정보가 없습니다. 앱 사용 중 조회되거나 입력된 데이터 (예: 시장 데이터 캐시, 디데이 설정값) 는 사용자 기기 내부에 일시적으로 저장되며, 앱을 삭제하면 모든 데이터가 함께 제거됩니다.</p>
-  </section>
+  <p class="note">
+    공포지수 앱은 광고 표시를 위해 Google AdMob 을 사용하며, 광고 식별자 처리는 <a href="https://policies.google.com/technologies/ads">Google 광고 정책</a> 을 따릅니다.<br />
+    The Fear &amp; Greed Index app uses Google AdMob for advertising; ad identifier handling follows Google's policies.
+  </p>
 
-  <section>
-    <h2><span class="num">04</span> 제3자 제공</h2>
-    <p>본 앱들은 사용자의 개인정보를 수집하지 않으며, 제3자에게 어떠한 개인정보도 제공하지 않습니다.</p>
-    <p>다만 공포지수 앱의 광고 표시를 위해 Google AdMob 에 광고 식별자가 전달될 수 있으며, 이는 Google 의 광고 정책에 따라 처리됩니다.</p>
-  </section>
-
-  <section>
-    <h2><span class="num">05</span> 사용자의 권리</h2>
-    <ul>
-      <li>앱 삭제를 통한 모든 로컬 데이터의 즉시 제거</li>
-      <li>iOS/Android 시스템 설정에서 광고 식별자 재설정 또는 추적 차단</li>
-      <li>개인정보 처리 방침에 대한 문의 및 의견 제출 — <a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a></li>
-    </ul>
-  </section>
-
-  <section>
-    <h2><span class="num">06</span> 데이터 보안</h2>
-    <ul>
-      <li>모든 외부 통신은 HTTPS 를 통해 안전하게 전송됩니다.</li>
-      <li>데이터는 사용자 기기 내부에서만 처리되며 외부 서버에 저장하지 않습니다.</li>
-      <li>iOS / Android 시스템의 샌드박스 보안 메커니즘을 활용합니다.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2><span class="num">07</span> 면책조항</h2>
-    <p>특히 공포지수 앱과 관련하여 다음 사항을 유의해 주시기 바랍니다.</p>
-    <ul>
-      <li>제공되는 Fear &amp; Greed Index 등 시장 데이터는 <strong>참고 목적</strong>이며, 투자 권유 또는 투자 조언이 아닙니다.</li>
-      <li>외부 API 제공자에 의존하므로 데이터의 정확성, 지연, 중단에 대해 책임지지 않습니다.</li>
-      <li>본 앱 사용으로 인해 발생한 투자 손실 또는 기타 손해에 대해 어떠한 책임도 지지 않습니다.</li>
-      <li>모든 투자 결정은 사용자 본인의 판단과 책임하에 이루어져야 합니다.</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2><span class="num">08</span> 아동의 개인정보 보호</h2>
-    <p>본 앱들은 만 14세 미만 아동을 포함한 모든 연령층이 안전하게 사용할 수 있습니다. 개인정보를 수집하지 않으므로 아동의 개인정보 보호를 위한 별도의 법정대리인 동의가 필요하지 않습니다.</p>
-  </section>
-
-  <section>
-    <h2><span class="num">09</span> 쿠키 및 유사 기술</h2>
-    <p>본 앱들은 웹이 아닌 네이티브 모바일 앱이므로 쿠키를 사용하지 않습니다. 다만 광고가 표시되는 앱의 경우 광고 식별자가 사용될 수 있습니다 (위 02 항 참고).</p>
-  </section>
-
-  <section>
-    <h2><span class="num">10</span> 개인정보 처리 방침의 변경</h2>
-    <p>본 개인정보 처리 방침은 법령 또는 서비스의 변경에 따라 수정될 수 있습니다. 변경되는 경우 앱 업데이트 또는 본 페이지를 통해 안내하며, 변경된 내용은 시행일로부터 효력이 발생합니다.</p>
-  </section>
-
-  <section>
-    <h2><span class="num">11</span> 준거법 및 관할법원</h2>
-    <p>본 개인정보 처리 방침은 대한민국 법률에 따라 규율되고 해석됩니다. 본 앱들과 관련된 분쟁이 발생할 경우, 관련 법령에 따라 대한민국 법원을 관할법원으로 합니다.</p>
-  </section>
-
-  <div class="meta-box">
-    <span><strong>최종 수정일</strong>2026년 5월 10일</span>
-    <span><strong>시행일</strong>2026년 5월 10일</span>
-    <span><strong>문의</strong><a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a></span>
-  </div>
-
+  <p class="contact">
+    <strong>문의 / Contact</strong><a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a>
+  </p>
 </main>
 
 <footer class="footer">
