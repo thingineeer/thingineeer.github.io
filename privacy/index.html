@@ -97,26 +97,34 @@
 <main>
   <p class="meta">privacy policy</p>
   <h1>개인정보 처리방침</h1>
-  <p class="date">2026. 6. 6</p>
+  <p class="date">2026. 7. 15</p>
 
   <div class="scope">
     <strong>적용 앱:</strong> UsageMaster: AI 사용량 관리 · 슬라이드픽 - 사진 퍼즐 · 공포지수 · PumpWater · CozyDay
   </div>
 
   <p>
-    UsageMaster는 사용자가 허용한 경우에만 Firebase Analytics와 Firebase Crashlytics를 사용해 익명 사용 통계와 충돌 진단 정보를 수집합니다. 수집 항목은 앱 실행, 설정 열기, 팝오버 열기, 제공자 상태 변화, 알림 표시 같은 제품 상호작용 이벤트와 충돌 로그 및 진단 정보입니다. 이 정보는 앱 품질 개선, 안정성 분석, 기능 사용 추세 파악에만 사용됩니다.
+    UsageMaster는 Firebase Analytics와 Firebase Crashlytics를 사용해 앱 실행, 설정 열기, 팝오버 열기, 제공자 상태 변화, 알림 표시 같은 제품 상호작용 이벤트와 충돌 로그 및 진단 정보를 수집합니다. 이 정보는 앱 품질 개선, 안정성 분석, 기능 사용 추세 파악에만 사용되며 AI 사용량 수치, 프롬프트, 응답, 이메일 또는 인증 정보는 분석 이벤트에 포함하지 않습니다.
   </p>
 
   <p class="lang-en">
-    UsageMaster uses Firebase Analytics and Firebase Crashlytics only when the user allows anonymous statistics. The collected data is limited to product interaction events such as app launches, settings opens, popover opens, provider status changes, and alert views, plus crash logs and diagnostic data. This data is used only to improve app quality, analyze stability, and understand aggregate feature usage.
+    UsageMaster uses Firebase Analytics and Firebase Crashlytics to collect product interaction events such as app launches, settings opens, popover opens, provider status changes, and alert views, plus crash logs and diagnostic data. This data is used only to improve app quality, analyze stability, and understand aggregate feature usage. Analytics events do not include AI usage values, prompts, responses, email addresses, or credentials.
   </p>
 
   <p>
-    UsageMaster는 AI 제공자의 프롬프트, 응답, 코드, 파일 내용, 디렉터리 이름, Git 정보, 이메일, 이름, 원본 API 키, 액세스 토큰, 리프레시 토큰, 제공자 인증 정보, 토큰 사용량 원본 수치를 수집·저장·전송하지 않습니다. 연결된 계정 이메일은 앱 화면 표시를 위해 메모리에서만 사용되며 저장하거나 외부로 전송하지 않습니다.
+    사용자가 글로벌 랭킹 참여를 선택하면 UsageMaster는 Firebase Anonymous Auth와 DeviceCheck 기반 App Check로 요청을 인증하고 Cloud Functions를 통해서만 랭킹을 처리합니다. 이때 공개 닉네임, 선택적 두 자리 지역 코드, 1,000토큰 단위로 반올림한 일간·주간·연간 사용량과 제공자별 집계, 활동 시간 버킷을 전송할 수 있습니다. Firebase는 서버 소유권 확인, 부정 사용 방지와 서비스 운영을 위해 익명 인증 식별자, DeviceCheck 토큰, 함수 이름 및 호출자 IP 주소도 처리합니다. 랭킹 참여는 선택 사항이며 언제든 앱에서 끌 수 있습니다.
   </p>
 
   <p class="lang-en">
-    UsageMaster does not collect, store, or transmit AI prompts, responses, code, file contents, directory names, Git information, email addresses, names, raw API keys, access tokens, refresh tokens, provider credential contents, or raw token usage values. Connected account emails are used only in memory for display inside the app and are not stored or sent outside the device.
+    If the user opts in to the global ranking, UsageMaster authenticates requests with Firebase Anonymous Auth and DeviceCheck-backed App Check and processes ranking data only through Cloud Functions. A ranking submission may include a public nickname, an optional two-letter region code, daily, weekly, yearly, and provider usage aggregates rounded to 1,000-token buckets, and an active-time bucket. Firebase also processes an anonymous authentication identifier, DeviceCheck token, function name, and caller IP address for ownership, abuse prevention, and service operation. Ranking participation is optional and can be disabled in the app at any time.
+  </p>
+
+  <p>
+    UsageMaster는 AI 제공자의 프롬프트, 응답, 코드, 파일 내용, 디렉터리 이름, Git 정보, 연결된 계정 이메일, 원본 API 키, 액세스 토큰, 리프레시 토큰, 제공자 인증 정보 또는 원본 사용량 로그를 수집·저장·전송하지 않습니다. 연결된 계정 이메일은 앱 화면 표시를 위해 메모리에서만 사용되며 저장하거나 외부로 전송하지 않습니다. 선택적 랭킹에 전송되는 버킷형 집계는 위 항목과 별도로 처리됩니다.
+  </p>
+
+  <p class="lang-en">
+    UsageMaster does not collect, store, or transmit AI prompts, responses, code, file contents, directory names, Git information, connected-account email addresses, raw API keys, access tokens, refresh tokens, provider credential contents, or raw usage-log records. Connected account emails are used only in memory for display inside the app and are not stored or sent outside the device. The optional bucketed ranking aggregates described above are processed separately.
   </p>
 
   <p class="note">
