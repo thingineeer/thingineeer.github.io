@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src 'self'">
+
+  <title>공포지수 — Fear &amp; Greed Index</title>
+  <meta name="description" content="시장의 공포와 탐욕을 숫자 하나로. S&P500 · KOSPI · 암호화폐 공포지수 앱">
+
+  <!-- Open Graph (쓰레드/카카오/트위터 미리보기) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="공포지수">
+  <meta property="og:title" content="공포지수 — Fear &amp; Greed Index">
+  <meta property="og:description" content="시장의 공포와 탐욕을 숫자 하나로. S&P500 · KOSPI · 암호화폐">
+  <meta property="og:url" content="https://thingineeer.github.io/fearindex/">
+  <meta property="og:image" content="https://thingineeer.github.io/fearindex/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="공포지수 — Fear &amp; Greed Index">
+  <meta name="twitter:image" content="https://thingineeer.github.io/fearindex/og.png">
+
+  <link rel="icon" href="icon.png">
+
+  <style>
+    :root { color-scheme: light dark; }
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      min-height: 100svh; display: flex; align-items: center; justify-content: center;
+      background: #f5f5f7; color: #1d1d1f; padding: 24px; text-align: center;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #1c1c1e; color: #f5f5f7; }
+      .btn.play { background: #2c2c2e; color: #f5f5f7; border-color: #3a3a3c; }
+    }
+    .card { max-width: 340px; width: 100%; }
+    .icon { width: 108px; height: 108px; border-radius: 24px; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+    h1 { font-size: 26px; margin: 18px 0 8px; }
+    p.desc { font-size: 15px; opacity: .75; line-height: 1.5; margin-bottom: 26px; }
+    .btn {
+      display: block; width: 100%; padding: 15px 0; margin-bottom: 12px;
+      border-radius: 14px; font-size: 16px; font-weight: 600; text-decoration: none;
+      border: 1px solid transparent;
+    }
+    .btn.appstore { background: #0071e3; color: #fff; }
+    .btn.play { background: #fff; color: #1d1d1f; border-color: #d2d2d7; }
+    p.note { font-size: 12px; opacity: .5; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <img class="icon" src="icon.png" alt="공포지수 앱 아이콘" width="108" height="108">
+    <h1>공포지수</h1>
+    <p class="desc">시장의 공포와 탐욕을 숫자 하나로.<br>S&amp;P500 · KOSPI · 암호화폐</p>
+    <a class="btn appstore" id="ios" href="https://apps.apple.com/kr/app/%EA%B3%B5%ED%8F%AC%EC%A7%80%EC%88%98/id6758426458"> App Store에서 받기</a>
+    <a class="btn play" id="android" href="https://play.google.com/store/apps/details?id=th1ngjin.fearindex">▶ Google Play에서 받기</a>
+    <p class="note">기기에 맞는 스토어로 자동 이동해요</p>
+  </main>
+
+  <script>
+    (function () {
+      var ua = navigator.userAgent || "";
+      // iPadOS 13+ 는 Mac UA 로 위장하므로 터치 지원 여부로 판별
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+                  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/i.test(ua);
+      var target = isIOS ? document.getElementById("ios").href
+                 : isAndroid ? document.getElementById("android").href
+                 : null;
+      if (target) { location.replace(target); }
+    })();
+  </script>
+</body>
+</html>
