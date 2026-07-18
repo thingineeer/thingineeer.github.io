@@ -23,6 +23,22 @@
 
   <link rel="icon" href="icon.png">
 
+  <script>
+    // 본문 렌더 전에 실행 — 모바일은 버튼 화면을 보지 않고 즉시 스토어로 이동한다.
+    // 데스크탑/크롤러만 아래 폴백 랜딩을 본다.
+    (function () {
+      var IOS_URL = "https://apps.apple.com/kr/app/%EA%B3%B5%ED%8F%AC%EC%A7%80%EC%88%98/id6758426458";
+      var ANDROID_URL = "https://play.google.com/store/apps/details?id=th1ngjin.fearindex";
+      var ua = navigator.userAgent || "";
+      // iPadOS 13+ 는 Mac UA 로 위장하므로 터치 지원 여부로 판별
+      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
+                  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+      var isAndroid = /Android/i.test(ua);
+      if (isIOS) { location.replace(IOS_URL); }
+      else if (isAndroid) { location.replace(ANDROID_URL); }
+    })();
+  </script>
+
   <style>
     :root { color-scheme: light dark; }
     * { margin: 0; box-sizing: border-box; }
@@ -58,19 +74,5 @@
     <a class="btn play" id="android" href="https://play.google.com/store/apps/details?id=th1ngjin.fearindex">▶ Google Play에서 받기</a>
     <p class="note">기기에 맞는 스토어로 자동 이동해요</p>
   </main>
-
-  <script>
-    (function () {
-      var ua = navigator.userAgent || "";
-      // iPadOS 13+ 는 Mac UA 로 위장하므로 터치 지원 여부로 판별
-      var isIOS = /iPhone|iPad|iPod/i.test(ua) ||
-                  (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-      var isAndroid = /Android/i.test(ua);
-      var target = isIOS ? document.getElementById("ios").href
-                 : isAndroid ? document.getElementById("android").href
-                 : null;
-      if (target) { location.replace(target); }
-    })();
-  </script>
 </body>
 </html>
