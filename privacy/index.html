@@ -1,185 +1,572 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>개인정보 처리방침 · thingineeer</title>
-<meta name="description" content="thingineeer 가 만든 앱들 (UsageMaster · 슬라이드픽 · 공포지수 · PumpWater · CozyDay · 딸깍 · 좀베리 디펜스 · 텐베리 · 그늘길) 의 공용 개인정보 처리방침." />
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/fearindex.png" />
-<link rel="icon" type="image/png" href="../assets/icons/fearindex.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-  :root{
-    --accent:#cc785c;
-    --ink:#1a1a1a; --ink-2:#3d3d3a;
-    --muted:#6e6e73;
-    --hairline:#e5e3df;
-    --canvas:#ffffff;
-    --canvas-cream:#faf6f0;
-    --canvas-parchment:#f6f5f4;
-    --sans:'Inter',"SF Pro Text",system-ui,-apple-system,'Apple SD Gothic Neo','Pretendard',sans-serif;
-    --mono:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,monospace;
-    --nav-h:60px;
-  }
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-  body{background:var(--canvas);color:var(--ink-2);font-family:var(--sans);font-size:17px;line-height:1.7;letter-spacing:-0.1px;-webkit-font-smoothing:antialiased;word-break:keep-all;}
-  a{color:var(--accent);text-decoration:none;}
-  a:hover{text-decoration:underline;}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>개인정보 처리방침 · thingineeer</title>
+  <meta name="description" content="thingineeer가 제공하는 모든 앱의 개인정보 처리방침입니다. 앱별 수집 항목, 이용 목적, 제3자 서비스, 보관 및 삭제 방법을 확인할 수 있습니다.">
+  <link rel="canonical" href="https://thingineeer.github.io/privacy/">
+  <link rel="icon" type="image/png" href="../assets/icons/fearindex.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/fearindex.png">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #191817;
+      --ink-subtle: #4b4946;
+      --muted: #716e69;
+      --accent: #a64f3a;
+      --accent-hover: #8f402e;
+      --accent-soft: #f5e6df;
+      --canvas: #fffdf9;
+      --surface: #f7f4ef;
+      --surface-strong: #eee9e2;
+      --line: #ded8cf;
+      --focus: #2563eb;
+      --ink-surface: #2b2927;
+      --ink-line: #5f5b56;
+      --ink-label: #c9c4bd;
+      --ink-chip: #ebe7e1;
+      --ink-chip-hover: #bcb5ac;
+      --white: #ffffff;
+      --sans: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
+      --mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      --nav-height: 64px;
+    }
 
-  .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--hairline);height:var(--nav-h);display:flex;align-items:center;padding:0 24px;}
-  .nav .brand{font-size:18px;font-weight:600;letter-spacing:-0.18px;color:var(--ink);}
-  .nav .brand:hover{text-decoration:none;}
-  .nav ul{list-style:none;margin-left:auto;display:flex;gap:24px;align-items:center;}
-  .nav ul a{font-size:14px;font-weight:500;color:var(--ink);}
-  .nav ul a:hover{color:var(--accent);text-decoration:none;}
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-height) + 24px); }
+    body {
+      margin: 0;
+      background: var(--canvas);
+      color: var(--ink-subtle);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      letter-spacing: -0.01em;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+    .skip-link {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 30;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--ink);
+      color: var(--canvas);
+      transform: translateY(-160%);
+      transition: transform 160ms ease;
+    }
+    .skip-link:focus { transform: translateY(0); }
 
-  main{
-    max-width:680px;margin:0 auto;
-    padding:96px 24px 96px;
-  }
-  .meta{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--muted);margin-bottom:16px;}
-  .meta::before{content:"// ";color:var(--accent);}
-  h1{font-size:48px;font-weight:600;line-height:1.1;letter-spacing:-0.6px;color:var(--ink);}
-  .date{font-family:var(--mono);font-size:14px;color:var(--muted);margin-top:14px;}
-  .scope{
-    margin-top:32px;
-    padding:18px 22px;
-    background:var(--canvas-parchment);
-    border:1px solid var(--hairline);
-    border-radius:14px;
-    font-size:15px;color:var(--ink);
-  }
-  .scope strong{font-weight:600;}
-  p{margin-top:24px;}
-  .lang-en{color:var(--ink-2);}
-  .note{
-    margin-top:28px;
-    font-size:14px;color:var(--muted);
-    padding-left:14px;border-left:2px solid var(--accent);
-  }
-  .contact{
-    margin-top:48px;
-    font-family:var(--mono);font-size:13px;color:var(--ink-2);
-  }
-  .contact strong{color:var(--accent);font-weight:500;margin-right:8px;}
-  .contact strong::before{content:"// ";}
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      min-height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 12px max(20px, calc((100vw - 1040px) / 2));
+      border-bottom: 1px solid var(--line);
+      background: color-mix(in srgb, var(--canvas) 92%, transparent);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+    }
+    .brand { color: var(--ink); font-size: 18px; font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; gap: 20px; margin-left: auto; }
+    .nav-links a { color: var(--ink-subtle); font-size: 14px; font-weight: 600; text-decoration: none; }
+    .nav-links a:hover { color: var(--accent); }
 
-  .footer{background:var(--canvas);border-top:1px solid var(--hairline);padding:32px 24px;}
-  .footer-inner{max-width:680px;margin:0 auto;display:flex;align-items:center;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:12px;color:var(--muted);}
-  .footer-inner .brand{font-family:var(--sans);font-weight:600;color:var(--ink);font-size:14px;letter-spacing:-0.1px;}
-  .footer-inner .legal{flex:1;font-family:var(--sans);font-size:12px;letter-spacing:-0.1px;}
-  .footer-inner a{color:var(--muted);}
-  .footer-inner a:hover{color:var(--ink);}
+    main { max-width: 1040px; margin: 0 auto; padding: 88px 24px 112px; }
+    .reading { max-width: 720px; }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: "// "; color: var(--accent); }
+    h1, h2, h3 { color: var(--ink); text-wrap: balance; }
+    h1 { margin: 0; font-size: clamp(36px, 6vw, 48px); font-weight: 700; line-height: 1.08; letter-spacing: -0.045em; }
+    h2 { margin: 80px 0 16px; font-size: 28px; line-height: 1.3; letter-spacing: -0.025em; }
+    h3 { margin: 0; font-size: 20px; line-height: 1.4; letter-spacing: -0.02em; }
+    p { margin: 16px 0 0; }
+    .lede { max-width: 640px; margin-top: 24px; color: var(--ink-subtle); font-size: 18px; }
 
-  @media (max-width:734px){
-    body{font-size:16px;}
-    .nav{padding:0 20px;}
-    main{padding:64px 20px 72px;}
-    h1{font-size:32px;letter-spacing:-0.4px;}
-    .scope{font-size:14px;padding:16px 18px;}
-    p{margin-top:20px;}
-    .footer{padding:24px 20px;}
-  }
-</style>
+    .scope-panel {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      margin-top: 40px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--line);
+    }
+    .scope-item { min-height: 104px; padding: 20px; background: var(--surface); }
+    .scope-item dt { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .scope-item dd { margin: 8px 0 0; color: var(--ink); font-weight: 650; }
+
+    .notice {
+      margin-top: 24px;
+      padding: 16px 18px;
+      border-left: 3px solid var(--accent);
+      background: var(--accent-soft);
+      color: var(--ink-subtle);
+      font-size: 14px;
+    }
+
+    .app-finder {
+      margin-top: 56px;
+      padding: 28px;
+      border-radius: 24px;
+      background: var(--ink);
+      color: var(--canvas);
+    }
+    .app-finder .eyebrow { color: var(--ink-label); }
+    .app-finder h2 { margin: 0; color: var(--canvas); }
+    .finder-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 12px; margin-top: 20px; }
+    .finder-row label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .finder-row select {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 44px 0 14px;
+      border: 1px solid var(--ink-line);
+      border-radius: 10px;
+      background: var(--ink-surface);
+      color: var(--canvas);
+      font: inherit;
+    }
+    .finder-row button {
+      min-height: 48px;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 10px;
+      background: var(--accent);
+      color: var(--white);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+    .finder-row button:hover { background: var(--accent-hover); }
+    .finder-row button:active { transform: translateY(1px); }
+    .app-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+    .app-chips a {
+      padding: 7px 10px;
+      border: 1px solid var(--ink-line);
+      border-radius: 10px;
+      color: var(--ink-chip);
+      font-size: 13px;
+      text-decoration: none;
+    }
+    .app-chips a:hover { border-color: var(--ink-chip-hover); background: var(--ink-surface); }
+
+    .apps-header { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-top: 80px; }
+    .apps-header h2 { margin: 0; }
+    .apps-header p { max-width: 480px; margin: 0; color: var(--muted); font-size: 14px; }
+    .app-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 24px; }
+    .app-policy {
+      position: relative;
+      min-width: 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--canvas);
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+    .app-policy:target, .app-policy.is-selected { border-color: var(--accent); background: var(--accent-soft); }
+    .app-policy:target .platform,
+    .app-policy:target .fact-list dt,
+    .app-policy.is-selected .platform,
+    .app-policy.is-selected .fact-list dt { color: var(--ink-subtle); }
+    .app-top { display: flex; align-items: start; justify-content: space-between; gap: 16px; }
+    .platform { color: var(--muted); font-family: var(--mono); font-size: 11px; line-height: 1.5; text-align: right; }
+    .summary { margin-top: 12px; color: var(--ink-subtle); font-size: 14px; }
+    .service-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .service-tags span { padding: 4px 8px; border-radius: 8px; background: var(--surface-strong); color: var(--ink-subtle); font-size: 12px; }
+    details { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+    summary { color: var(--accent); font-size: 14px; font-weight: 700; cursor: pointer; }
+    .fact-list { display: grid; gap: 14px; margin: 18px 0 0; }
+    .fact-list div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; }
+    .fact-list dt { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .fact-list dd { margin: 0; color: var(--ink-subtle); font-size: 14px; }
+
+    .policy-section { max-width: 720px; padding-top: 4px; }
+    .policy-section ul { margin: 16px 0 0; padding-left: 22px; }
+    .policy-section li + li { margin-top: 8px; }
+    .service-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+    .service-links a {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--ink-subtle);
+      font-size: 14px;
+      text-decoration: none;
+    }
+    .service-links a::after { content: "↗"; color: var(--accent); }
+    .service-links a:hover { border-color: var(--accent); }
+    .contact-card {
+      margin-top: 80px;
+      padding: 28px;
+      border-radius: 24px;
+      background: var(--surface);
+    }
+    .contact-card h2 { margin: 0; }
+    .contact-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; margin: 20px 0 0; }
+    .contact-list dt { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .contact-list dd { margin: 4px 0 0; color: var(--ink); }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 24px; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; color: var(--muted); font-size: 12px; }
+    .footer-inner strong { color: var(--ink); }
+    .footer-inner span:nth-child(2) { margin-left: auto; }
+
+    @media (max-width: 760px) {
+      .nav { padding-inline: 20px; }
+      .nav-links { gap: 12px; }
+      main { padding: 56px 20px 80px; }
+      .scope-panel, .app-grid, .service-links, .contact-list { grid-template-columns: 1fr; }
+      .scope-item { min-height: auto; }
+      .finder-row { grid-template-columns: 1fr; }
+      .apps-header { display: block; }
+      .apps-header p { margin-top: 12px; }
+      .app-grid { gap: 12px; }
+      .app-policy { padding: 20px; }
+      .fact-list div { grid-template-columns: 1fr; gap: 2px; }
+      .footer-inner span:nth-child(2) { margin-left: 0; }
+    }
+    @media (max-width: 420px) {
+      .nav-links a:first-child { display: none; }
+      .app-top { display: block; }
+      .platform { margin-top: 6px; text-align: left; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#content">본문으로 건너뛰기</a>
+  <nav class="nav" aria-label="주요 메뉴">
+    <a class="brand" href="../">thingineeer</a>
+    <div class="nav-links">
+      <a href="#apps">앱별 내역</a>
+      <a href="#rights">이용자 권리</a>
+      <a href="#contact">문의</a>
+    </div>
+  </nav>
 
-<nav class="nav" aria-label="Global">
-  <a class="brand" href="../">thingineeer</a>
-  <ul>
-    <li><a href="../">홈</a></li>
-    <li><a href="../#contact">문의</a></li>
-  </ul>
-</nav>
+  <main id="content">
+    <header class="reading">
+      <p class="eyebrow">privacy policy</p>
+      <h1>개인정보 처리방침</h1>
+      <p class="lede">하나의 주소에서 thingineeer의 모든 앱이 어떤 데이터를 왜 처리하는지 확인할 수 있습니다. 공통 원칙은 한 번만 설명하고, 앱마다 다른 내용은 앱별 카드로 분리했습니다.</p>
 
-<main>
-  <p class="meta">privacy policy</p>
-  <h1>개인정보 처리방침</h1>
-  <p class="date">2026. 7. 16</p>
+      <dl class="scope-panel">
+        <div class="scope-item">
+          <dt>적용 앱</dt>
+          <dd>9개</dd>
+        </div>
+        <div class="scope-item">
+          <dt>최종 업데이트</dt>
+          <dd>2026. 7. 20.</dd>
+        </div>
+        <div class="scope-item">
+          <dt>시행일</dt>
+          <dd>2026. 7. 20.</dd>
+        </div>
+      </dl>
+      <p class="notice">스토어 개발자명은 iOS에서 <strong>개발자</strong>, Android에서 <strong>developer</strong>로 표시될 수 있으며, 이 방침의 운영 주체는 아래 연락처의 Myeongjin Lee(ImaJine)입니다.</p>
+    </header>
 
-  <div class="scope">
-    <strong>적용 앱:</strong> UsageMaster: AI 사용량 관리 · 슬라이드픽 - 사진 퍼즐 · 공포지수 · PumpWater · CozyDay · 딸깍 - 키보드 소리 ASMR · 좀베리 디펜스: 귀여운 좀비 타워디펜스 · 텐베리: 합쳐서 10 베리퍼즐 · 그늘길 (ShadeWalk)
-  </div>
+    <section class="app-finder" aria-labelledby="finder-title">
+      <p class="eyebrow">find your app</p>
+      <h2 id="finder-title">사용 중인 앱으로 바로 이동</h2>
+      <div class="finder-row">
+        <label for="app-select">앱 선택</label>
+        <select id="app-select">
+          <option value="">앱을 선택하세요</option>
+          <option value="usagemaster">UsageMaster: AI 사용량 관리</option>
+          <option value="slidepic">슬라이드픽 - 사진 퍼즐</option>
+          <option value="fearindex">공포지수</option>
+          <option value="pumpwater">PumpWater</option>
+          <option value="cozyday">CozyDay</option>
+          <option value="ddalggak">딸깍 - 키보드 소리 ASMR</option>
+          <option value="zomberry">좀베리 디펜스</option>
+          <option value="tenberry">텐베리</option>
+          <option value="shadewalk">그늘길 (ShadeWalk)</option>
+        </select>
+        <button id="app-go" type="button">내역 보기</button>
+      </div>
+      <div class="app-chips" aria-label="앱 바로가기">
+        <a href="#usagemaster">UsageMaster</a>
+        <a href="#slidepic">슬라이드픽</a>
+        <a href="#fearindex">공포지수</a>
+        <a href="#pumpwater">PumpWater</a>
+        <a href="#cozyday">CozyDay</a>
+        <a href="#ddalggak">딸깍</a>
+        <a href="#zomberry">좀베리</a>
+        <a href="#tenberry">텐베리</a>
+        <a href="#shadewalk">그늘길</a>
+      </div>
+    </section>
 
-  <p>
-    UsageMaster는 Firebase Analytics와 Firebase Crashlytics를 사용해 앱 실행, 설정 열기, 팝오버 열기, 제공자 상태 변화, 알림 표시 같은 제품 상호작용 이벤트와 충돌 로그 및 진단 정보를 수집합니다. 이 정보는 앱 품질 개선, 안정성 분석, 기능 사용 추세 파악에만 사용되며 AI 사용량 수치, 프롬프트, 응답, 이메일 또는 인증 정보는 분석 이벤트에 포함하지 않습니다.
-  </p>
+    <section id="apps" aria-labelledby="apps-title">
+      <div class="apps-header">
+        <h2 id="apps-title">앱별 처리 내역</h2>
+        <p>아래 내용은 앱 코드와 기존 앱별 정책에서 확인한 현재 동작을 기준으로 합니다. 선택 기능을 사용하지 않으면 해당 선택 데이터는 처리하지 않습니다.</p>
+      </div>
 
-  <p class="lang-en">
-    UsageMaster uses Firebase Analytics and Firebase Crashlytics to collect product interaction events such as app launches, settings opens, popover opens, provider status changes, and alert views, plus crash logs and diagnostic data. This data is used only to improve app quality, analyze stability, and understand aggregate feature usage. Analytics events do not include AI usage values, prompts, responses, email addresses, or credentials.
-  </p>
+      <div class="app-grid">
+        <article class="app-policy" id="usagemaster">
+          <div class="app-top"><h3>UsageMaster</h3><span class="platform">macOS</span></div>
+          <p class="summary">AI 제공자 자격 증명과 원본 사용 로그는 기기 밖으로 보내지 않으며, 선택한 글로벌 랭킹에는 최소화한 집계만 전송합니다.</p>
+          <div class="service-tags"><span>Firebase</span><span>DeviceCheck</span><span>선택적 랭킹</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>제공자 연결 정보와 사용량 원본. 프롬프트·응답·코드·파일 내용·API 키·토큰·연결 이메일은 서버 분석 이벤트에 포함하지 않습니다.</dd></div>
+              <div><dt>선택 전송</dt><dd>공개 닉네임, 선택적 국가 코드, 1,000토큰 단위 사용량 집계, 제공자별 집계, 활동 시간 버킷, 익명 인증 식별자.</dd></div>
+              <div><dt>자동 처리</dt><dd>Firebase Analytics의 앱·기능 상호작용 이벤트와 Crashlytics의 충돌·기기·OS 진단 정보.</dd></div>
+              <div><dt>목적</dt><dd>랭킹 제공, 부정 사용 방지, 제품 품질과 안정성 개선.</dd></div>
+              <div><dt>보관·삭제</dt><dd>기기 데이터는 앱 삭제 또는 초기화 시 삭제됩니다. 랭킹 데이터 삭제는 이메일로 요청할 수 있습니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p>
-    사용자가 글로벌 랭킹 참여를 선택하면 UsageMaster는 Firebase Anonymous Auth와 DeviceCheck 기반 App Check로 요청을 인증하고 Cloud Functions를 통해서만 랭킹을 처리합니다. 이때 공개 닉네임, 선택적 두 자리 지역 코드, 1,000토큰 단위로 반올림한 일간·주간·연간 사용량과 제공자별 집계, 활동 시간 버킷을 전송할 수 있습니다. Firebase는 서버 소유권 확인, 부정 사용 방지와 서비스 운영을 위해 익명 인증 식별자, DeviceCheck 토큰, 함수 이름 및 호출자 IP 주소도 처리합니다. 랭킹 참여는 선택 사항이며 언제든 앱에서 끌 수 있습니다.
-  </p>
+        <article class="app-policy" id="slidepic">
+          <div class="app-top"><h3>슬라이드픽</h3><span class="platform">iOS</span></div>
+          <p class="summary">선택한 퍼즐 사진은 기기 메모리에서 처리하며 서버에 올리지 않습니다. 계정·랭킹·프로필·푸시 기능을 쓸 때만 관련 데이터를 저장합니다.</p>
+          <div class="service-tags"><span>Supabase</span><span>Firebase</span><span>AdMob</span><span>Apple 로그인</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>서버</dt><dd>내부 UUID, 선택적 Apple 로그인 식별자·닉네임·국가 코드·프로필 썸네일·푸시 토큰, 난이도·클리어 시간·이동 수·플레이 기록.</dd></div>
+              <div><dt>수집 안 함</dt><dd>퍼즐 원본 사진, 이메일, 위치, 연락처, 마이크. 프로필용으로 직접 저장한 썸네일만 비공개 Storage에 보관합니다.</dd></div>
+              <div><dt>자동 처리</dt><dd>Firebase Analytics/FCM과 Google AdMob이 사용 이벤트, 알림 토큰, 광고·기기·성능 정보를 처리할 수 있습니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>마이 화면의 회원 탈퇴 또는 데이터 초기화 시 계정·프로필·플레이 기록·푸시 토큰을 삭제합니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p class="lang-en">
-    If the user opts in to the global ranking, UsageMaster authenticates requests with Firebase Anonymous Auth and DeviceCheck-backed App Check and processes ranking data only through Cloud Functions. A ranking submission may include a public nickname, an optional two-letter region code, daily, weekly, yearly, and provider usage aggregates rounded to 1,000-token buckets, and an active-time bucket. Firebase also processes an anonymous authentication identifier, DeviceCheck token, function name, and caller IP address for ownership, abuse prevention, and service operation. Ranking participation is optional and can be disabled in the app at any time.
-  </p>
+        <article class="app-policy" id="fearindex">
+          <div class="app-top"><h3>공포지수</h3><span class="platform">iOS · macOS · Android</span></div>
+          <p class="summary">시장 지표 표시와 알림, 앱 안정성 분석 및 광고 제공에 필요한 정보만 처리합니다.</p>
+          <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>관심 설정, 위젯·알림 설정과 앱 표시 환경.</dd></div>
+              <div><dt>자동 처리</dt><dd>Firebase Analytics/Crashlytics의 앱 사용·충돌 진단, FCM의 푸시 토큰, AdMob의 광고 제공·측정·보안 정보.</dd></div>
+              <div><dt>광고 동의</dt><dd>EEA·영국·스위스 등 필요한 지역에서는 Google UMP가 동의 상태를 처리하고 선택에 맞는 광고 요청을 적용합니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 설정은 앱 삭제로 제거됩니다. 푸시 토큰은 알림 해제·앱 삭제 및 토큰 갱신 과정에서 폐기되며, 별도 요청은 이메일로 받습니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p>
-    UsageMaster는 AI 제공자의 프롬프트, 응답, 코드, 파일 내용, 디렉터리 이름, Git 정보, 연결된 계정 이메일, 원본 API 키, 액세스 토큰, 리프레시 토큰, 제공자 인증 정보 또는 원본 사용량 로그를 수집·저장·전송하지 않습니다. 연결된 계정 이메일은 앱 화면 표시를 위해 메모리에서만 사용되며 저장하거나 외부로 전송하지 않습니다. 선택적 랭킹에 전송되는 버킷형 집계는 위 항목과 별도로 처리됩니다.
-  </p>
+        <article class="app-policy" id="pumpwater">
+          <div class="app-top"><h3>PumpWater</h3><span class="platform">iOS</span></div>
+          <p class="summary">개인 식별 프로필을 만들지 않으며, 앱 사용성·충돌 진단과 비개인화 광고 제공을 위한 SDK 정보만 처리합니다.</p>
+          <div class="service-tags"><span>Firebase Analytics</span><span>Crashlytics</span><span>AdMob</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>사용자가 설정한 앱 환경과 기능 기록.</dd></div>
+              <div><dt>자동 처리</dt><dd>기능 사용 빈도·화면 이벤트 같은 익명 분석, 기기 모델·OS·충돌 스택, 광고 노출·상호작용·기기 정보.</dd></div>
+              <div><dt>마이크</dt><dd>마이크를 사용하는 기능은 권한을 받은 경우에만 동작하며, 원본 오디오를 서버에 저장하지 않습니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 데이터는 앱 삭제로 제거됩니다. 진단·광고 데이터는 각 서비스 제공자의 보관 정책에 따르며 이메일로 권리 행사를 요청할 수 있습니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p class="lang-en">
-    UsageMaster does not collect, store, or transmit AI prompts, responses, code, file contents, directory names, Git information, connected-account email addresses, raw API keys, access tokens, refresh tokens, provider credential contents, or raw usage-log records. Connected account emails are used only in memory for display inside the app and are not stored or sent outside the device. The optional bucketed ranking aggregates described above are processed separately.
-  </p>
+        <article class="app-policy" id="cozyday">
+          <div class="app-top"><h3>CozyDay</h3><span class="platform">iOS</span></div>
+          <p class="summary">커플 연결·편지·다이어리 기능을 선택해 사용할 때 관련 콘텐츠를 Firebase에 저장하며, 계정 삭제 기능을 제공합니다.</p>
+          <div class="service-tags"><span>Firebase Auth</span><span>Firestore</span><span>FCM</span><span>AdMob</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>이름, 만난 날짜, 기념일, 생일, 사용자가 선택한 사진과 앱 설정.</dd></div>
+              <div><dt>서버</dt><dd>선택적 닉네임, 로그인 방식, 가입 시각, 커플 연결, 편지·다이어리·기분·기념일·꾸미기 데이터, 푸시 토큰.</dd></div>
+              <div><dt>단기 보관</dt><dd>24시간 편지와 초대 코드는 기능 정책에 따라 24시간 뒤 자동 삭제됩니다.</dd></div>
+              <div><dt>자동 처리</dt><dd>Firebase Analytics/Crashlytics의 익명 사용·충돌 진단과 AdMob의 광고 관련 정보.</dd></div>
+              <div><dt>보관·삭제</dt><dd>앱의 계정 삭제 기능으로 서버 계정·연결 데이터를 삭제할 수 있습니다. 로컬 데이터는 초기화 또는 앱 삭제로 제거됩니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p>
-    <strong>그늘길 (ShadeWalk) —</strong> 그늘길은 그늘이 있는 보행 경로를 안내하기 위해 다음 정보를 사용합니다. <strong>위치정보</strong>는 지도에 현재 위치와 그늘 경로를 표시하기 위해서만 사용하며, 기기 안에서 처리하고 서버로 전송하지 않습니다. Apple <strong>HealthKit</strong>의 걸음 수와 건강 데이터는 앱 화면에 표시하고 기록하기 위해서만 읽으며, 외부로 전송하지 않습니다. 광고 게재를 위해 Google AdMob이 <strong>광고 식별자</strong>를 사용합니다.
-  </p>
-  <p class="lang-en">
-    <strong>ShadeWalk (그늘길) —</strong> ShadeWalk uses the following information to guide you along shaded walking routes. <strong>Location data</strong> is used only to show your current position and shaded routes on the map; it is processed on the device and is not sent to any server. Step count and health data from Apple <strong>HealthKit</strong> are read only to display and log them inside the app and are not sent anywhere. Google AdMob uses an <strong>advertising identifier</strong> to serve ads.
-  </p>
+        <article class="app-policy" id="ddalggak">
+          <div class="app-top"><h3>딸깍</h3><span class="platform">iOS · Android</span></div>
+          <p class="summary">로그인·랭킹·배지·알림 기능을 위해 Firebase를 사용하며, 광고 제공과 품질 분석을 위해 Google SDK를 사용합니다.</p>
+          <div class="service-tags"><span>Firebase</span><span>Apple·Google 로그인</span><span>FCM</span><span>AdMob</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>계정</dt><dd>익명 사용자 ID, Apple 또는 Google 로그인 식별자, 닉네임, 선택적 프로필 사진과 국가.</dd></div>
+              <div><dt>게임</dt><dd>총 딸깍 수, 게임 점수·랭킹, 배지·보상 상태와 부정 사용 방지용 진단 필드.</dd></div>
+              <div><dt>알림</dt><dd>FCM/APNs 토큰, 언어, 알림 활성 상태, 사용자 ID 연결. 랭킹·배지 등 사용자가 허용한 알림 전송에만 사용합니다.</dd></div>
+              <div><dt>자동 처리</dt><dd>Firebase Analytics/Crashlytics의 앱 사용·충돌 정보와 AdMob의 광고 제공·측정·보안 정보.</dd></div>
+              <div><dt>보관·삭제</dt><dd>내 정보 → 계정 삭제에서 계정과 서버 데이터 삭제를 요청할 수 있습니다. <a href="../ddalggak/account-deletion/">외부 삭제 안내</a>도 제공합니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p>
-    그늘길은 광고 게재에 <strong>Google AdMob</strong>, 익명 사용 통계와 충돌 진단에 <strong>Google Firebase</strong>(Analytics·Crashlytics)를 사용합니다. 날씨를 조회할 때에 한해 현재 위치 좌표를 <strong>Open-Meteo</strong> 날씨 API로 전송하며, 이때 계정 정보나 개인을 식별할 수 있는 정보는 함께 전송하지 않습니다. 그 외 위치·건강 데이터는 서버로 전송하지 않습니다.
-  </p>
-  <p class="lang-en">
-    ShadeWalk uses <strong>Google AdMob</strong> for advertising and <strong>Google Firebase</strong> (Analytics and Crashlytics) for anonymous usage statistics and crash diagnostics. Only when fetching weather does it send your current coordinates to the <strong>Open-Meteo</strong> weather API, with no account or personally identifying information attached. No other location or health data is sent to any server.
-  </p>
+        <article class="app-policy" id="zomberry">
+          <div class="app-top"><h3>좀베리 디펜스</h3><span class="platform">iOS</span></div>
+          <p class="summary">게임 진행은 기기에 저장하고, 밸런스·안정성 분석과 광고 제공을 위해 익명 이벤트와 진단 정보를 처리합니다.</p>
+          <div class="service-tags"><span>Firebase Analytics</span><span>Crashlytics</span><span>AdMob</span><span>UMP</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>레벨 진행, 보유 재화·스킨, 구매 상태, 설정과 최고 기록.</dd></div>
+              <div><dt>자동 처리</dt><dd>레벨·웨이브·광고·구매 흐름 같은 집계 이벤트, 기기·OS·충돌 진단, 광고 노출·상호작용 정보.</dd></div>
+              <div><dt>광고 동의</dt><dd>필요한 지역에서는 Google UMP를 통해 동의 상태를 확인한 뒤 광고를 요청합니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 진행 데이터는 앱 삭제로 제거됩니다. SDK 데이터 관련 요청은 이메일로 접수합니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p>
-    그늘길은 별도의 서버 계정을 만들지 않으며, 저장한 <strong>경로 보관함</strong>은 기기 내부(UserDefaults)에만 보관합니다. 앱을 삭제하면 기기에 저장된 데이터도 함께 삭제됩니다.
-  </p>
-  <p class="lang-en">
-    ShadeWalk does not create a server-side account. Your saved <strong>route library</strong> is stored only on the device (UserDefaults). Deleting the app also deletes the data stored on the device.
-  </p>
+        <article class="app-policy" id="tenberry">
+          <div class="app-top"><h3>텐베리</h3><span class="platform">Apps in Toss</span></div>
+          <p class="summary">게임 진행은 기기에 저장하며, 토스 앱인토스 환경의 플랫폼 SDK·Toss Ads와 Firebase가 운영에 필요한 정보를 처리할 수 있습니다.</p>
+          <div class="service-tags"><span>Apps in Toss</span><span>Toss Ads</span><span>Firebase</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>게임 상태, 점수, 설정과 광고 노출 간격 제어 정보.</dd></div>
+              <div><dt>플랫폼</dt><dd>토스 앱인토스가 서비스 실행·인증·보안에 필요한 앱 식별 정보와 기술 정보를 처리할 수 있습니다.</dd></div>
+              <div><dt>광고·분석</dt><dd>Toss Ads가 광고 요청·노출·상호작용 정보를, Firebase가 익명 사용 이벤트와 오류 진단을 처리할 수 있습니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 기록은 미니앱 데이터 초기화로 제거됩니다. 플랫폼 처리 데이터는 토스 및 Google 정책에 따르며 이메일로 요청할 수 있습니다.</dd></div>
+            </dl>
+          </details>
+        </article>
 
-  <p class="contact">
-    <strong>그늘길 시행일</strong>: 2026. 7. 16 &nbsp;·&nbsp; 운영자: ImaJine (개인사업자) &nbsp;·&nbsp; <a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+821071184320">+82 10-7118-4320</a>
-  </p>
+        <article class="app-policy" id="shadewalk">
+          <div class="app-top"><h3>그늘길</h3><span class="platform">iOS</span></div>
+          <p class="summary">위치·HealthKit은 주로 기기에서 처리합니다. 날씨 조회와 사용자가 직접 보내는 틀린 지형 제보에는 필요한 좌표가 서버로 전송됩니다.</p>
+          <div class="service-tags"><span>HealthKit</span><span>Open-Meteo</span><span>Firebase</span><span>AdMob</span></div>
+          <details>
+            <summary>처리 항목과 삭제 방법</summary>
+            <dl class="fact-list">
+              <div><dt>기기 내</dt><dd>현재 위치 표시, 걸음 수·건강 데이터, 저장 경로·즐겨찾기·걷기 기록. HealthKit 데이터는 광고나 마케팅에 사용하지 않습니다.</dd></div>
+              <div><dt>날씨 조회</dt><dd>날씨를 요청할 때 현재 좌표를 Open-Meteo에 전송하며 계정 정보는 함께 보내지 않습니다.</dd></div>
+              <div><dt>선택 제보</dt><dd>사용자가 틀린 지형 제보를 제출하면 선택한 사진, 촬영 시각, 좌표, 선택적 장소명, 앱 버전·언어가 Firebase에 저장됩니다. 사진은 재인코딩해 원본 EXIF 메타데이터를 제거합니다.</dd></div>
+              <div><dt>자동 처리</dt><dd>Firebase Analytics의 기능 사용 집계와 AdMob의 광고·기기·성능 정보.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 데이터는 앱 삭제로 제거됩니다. 제보 삭제는 이메일로 요청할 수 있습니다.</dd></div>
+            </dl>
+          </details>
+        </article>
+      </div>
+    </section>
 
-  <p class="note">
-    슬라이드픽, 공포지수, 딸깍, 좀베리 디펜스, 텐베리, 그늘길 앱은 광고 표시를 위해 Google AdMob 을 사용합니다. 공포지수 앱은 유럽 경제 지역(EEA), 영국, 스위스 사용자를 대상으로 Google 의 인증된 동의 관리 플랫폼(CMP)과 User Messaging Platform(UMP) SDK 를 통해 광고 동의를 요청하고, 사용자가 선택한 동의 상태에 따라 개인 맞춤 광고 또는 제한된 광고를 요청합니다.
-    광고 식별자, 기기 정보, 광고 노출·클릭·동의 신호 처리는 <a href="https://policies.google.com/technologies/ads">Google 광고 정책</a> 및 Google AdMob 의 파트너 고지에 따릅니다.<br />
-    SlidePic, the Fear &amp; Greed Index app, Ddalggak (딸깍), Zomberry Defense, Tenberry, and ShadeWalk (그늘길) use Google AdMob for advertising. For users in the EEA, the UK, and Switzerland, the Fear &amp; Greed Index app requests ad consent through Google's certified Consent Management Platform (CMP) and the User Messaging Platform (UMP) SDK, then requests personalized ads or limited ads based on the user's choices.
-    Processing of advertising identifiers, device information, ad impressions, clicks, and consent signals follows Google's advertising policies and Google AdMob partner disclosures.
-  </p>
+    <section class="policy-section" id="principles">
+      <h2>공통 처리 원칙</h2>
+      <ul>
+        <li>앱 기능 제공에 필요한 최소 정보만 처리하고, 광고·분석·알림처럼 선택 가능한 기능은 운영체제 및 지역별 동의 절차를 따릅니다.</li>
+        <li>앱에서 직접 운영하는 서버 데이터는 HTTPS로 전송하고 Firebase 보안 규칙, App Check, 데이터베이스 접근 제어 등 앱별 보호 조치를 적용합니다.</li>
+        <li>광고·분석·인증·호스팅 제공자는 자체 인프라에서 기기 정보, IP 주소, SDK 식별자와 기술 로그를 처리할 수 있으며 국외에서 처리될 수 있습니다.</li>
+        <li>법적 의무, 분쟁 대응, 보안·부정 사용 방지에 필요한 경우를 제외하고 목적이 끝난 데이터는 삭제하거나 식별할 수 없는 집계로 전환합니다.</li>
+      </ul>
+    </section>
 
-  <p>
-    <strong>계정 및 데이터 삭제 —</strong> 딸깍 - 키보드 소리 ASMR 사용자는 앱의 <strong>내 정보</strong> 화면에서 <strong>계정 삭제</strong>를 눌러 계정과 서버에 저장된 데이터(닉네임·프로필 사진·사용자 ID·국가·랭킹 기록)를 즉시 삭제할 수 있습니다. 자세한 절차와 데이터 유형별 보관 기간은 <a href="../ddalggak/account-deletion/">계정 및 데이터 삭제 안내</a>를 참고하세요.
-  </p>
-  <p class="lang-en">
-    <strong>Account &amp; data deletion —</strong> Ddalggak (딸깍 - 키보드 소리 ASMR) users can delete their account and server-side data (nickname, profile photo, user ID, country, ranking records) instantly from the <strong>My</strong> screen via <strong>Delete Account</strong>. See the <a href="../ddalggak/account-deletion/">account &amp; data deletion guide</a> for the full steps and per-data-type retention.
-  </p>
+    <section class="policy-section" id="processors">
+      <h2>외부 서비스</h2>
+      <p>각 앱 카드에 표시된 서비스만 해당 앱에 적용됩니다. 서비스 제공자가 처리하는 구체 항목과 보관 방식은 아래 공식 정책에서도 확인할 수 있습니다.</p>
+      <div class="service-links">
+        <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Google Firebase 개인정보</a>
+        <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">Google 광고 기술</a>
+        <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase 개인정보</a>
+        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple 개인정보</a>
+        <a href="https://toss.im/privacy" target="_blank" rel="noopener noreferrer">Toss 개인정보</a>
+        <a href="https://open-meteo.com/en/terms" target="_blank" rel="noopener noreferrer">Open-Meteo 약관</a>
+      </div>
+    </section>
 
-  <p class="contact">
-    <strong>contact</strong>: <a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a>
-  </p>
-</main>
+    <section class="policy-section" id="rights">
+      <h2>보관·삭제와 이용자 권리</h2>
+      <p>이용자는 본인 데이터의 열람, 정정, 삭제, 처리 정지를 요청할 수 있습니다. 앱 안에 계정 삭제나 초기화 기능이 있으면 그 기능이 가장 빠릅니다. 앱에서 처리할 수 없거나 기기를 사용할 수 없는 경우 아래 이메일로 앱 이름과 요청 내용을 보내주세요.</p>
+      <ul>
+        <li>본인 확인에 필요한 최소 정보만 추가로 요청하며, 요청 처리 후 확인 자료를 지체 없이 삭제합니다.</li>
+        <li>법령상 보관 의무나 보안·부정 사용 방지상 필요한 데이터가 있으면 항목과 기간을 안내합니다.</li>
+        <li>Google Play에서 계정을 만드는 앱은 앱 내부와 외부 웹 경로 모두에서 삭제 요청 방법을 제공합니다.</li>
+        <li>앱을 삭제하면 기기 샌드박스의 로컬 데이터는 제거되지만, 서버 데이터나 제3자 SDK 데이터는 별도 삭제 요청이 필요할 수 있습니다.</li>
+      </ul>
+    </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <span class="brand">thingineeer</span>
-    <span class="legal">© <span id="y"></span> Myeongjin Lee. All rights reserved.</span>
-    <a href="https://github.com/thingineeer">GITHUB</a>
-  </div>
-</footer>
+    <section class="policy-section" id="changes">
+      <h2>방침 변경</h2>
+      <p>앱 기능, SDK 또는 법적 요구사항이 바뀌면 이 문서를 갱신합니다. 중요한 변경은 시행 전에 앱 또는 이 페이지에서 알리고, 추가 동의가 필요한 처리는 동의를 받은 뒤 시작합니다. 각 앱의 스토어 Data safety·App Privacy 답변도 실제 처리와 일치하도록 함께 관리합니다.</p>
+    </section>
 
-<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+    <section class="contact-card" id="contact" aria-labelledby="contact-title">
+      <p class="eyebrow">privacy contact</p>
+      <h2 id="contact-title">개인정보 문의</h2>
+      <dl class="contact-list">
+        <div><dt>운영 주체</dt><dd>Myeongjin Lee · ImaJine</dd></div>
+        <div><dt>스토어 개발자명</dt><dd>iOS 개발자 · Android developer</dd></div>
+        <div><dt>이메일</dt><dd><a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a></dd></div>
+        <div><dt>전화</dt><dd><a href="tel:+821071184320">+82 10-7118-4320</a></dd></div>
+      </dl>
+    </section>
+  </main>
 
+  <footer>
+    <div class="footer-inner">
+      <strong>thingineeer</strong>
+      <span>© <span id="year">2026</span> Myeongjin Lee</span>
+      <a href="https://github.com/thingineeer">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const select = document.querySelector('#app-select');
+      const go = document.querySelector('#app-go');
+      const policies = [...document.querySelectorAll('.app-policy')];
+
+      const openApp = (id) => {
+        const target = id && document.getElementById(id);
+        if (!target) return;
+        policies.forEach((policy) => policy.classList.remove('is-selected'));
+        target.classList.add('is-selected');
+        const details = target.querySelector('details');
+        if (details) details.open = true;
+        history.replaceState(null, '', `#${id}`);
+        target.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+      };
+
+      go.addEventListener('click', () => openApp(select.value));
+      select.addEventListener('change', () => {
+        if (select.value) openApp(select.value);
+      });
+
+      const initial = location.hash.slice(1);
+      if (document.getElementById(initial)) {
+        select.value = initial;
+        const target = document.getElementById(initial);
+        target.classList.add('is-selected');
+        const details = target.querySelector('details');
+        if (details) details.open = true;
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
