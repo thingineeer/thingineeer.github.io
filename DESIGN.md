@@ -79,5 +79,5 @@
 - Describe only data handling verified in current app code or an existing app-specific policy.
 - Separate on-device data, server data, optional data, and SDK-processed data.
 - Name retention/deletion behavior; do not use vague phrases such as “as needed.”
-- Identify platform developer names (`개발자` on iOS, `developer` on Android) and the operator.
+- Identify the policy operator without duplicating store-facing developer labels.
 - Keep the same public URL for existing store listings; use fragments only as optional shortcuts.
