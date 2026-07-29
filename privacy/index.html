@@ -336,17 +336,30 @@
       <div class="app-grid">
         <article class="app-policy" id="usagemaster">
           <div class="app-top"><h3>UsageMaster</h3><span class="platform">macOS</span></div>
-          <p class="summary">AI 제공자 자격 증명과 원본 사용 로그는 기기 밖으로 보내지 않습니다. 공개 랭킹 관전은 앱 위변조 방지 정보만 처리하고, 사용량 집계 전송은 사용자가 랭킹 참여를 선택한 경우에만 시작합니다.</p>
-          <div class="service-tags"><span>Firebase</span><span>DeviceCheck · App Check</span><span>공개 랭킹</span><span>선택 참여</span></div>
+          <p class="summary">AI 제공자 자격 증명과 원본 사용 로그는 기기 밖으로 보내지 않습니다. 진단 공유와 랭킹 참여는 기본적으로 꺼져 있으며, 사용자가 각각 선택한 경우에만 관련 정보 전송을 시작합니다. 공개 랭킹 관전은 참여하지 않아도 앱·기기 무결성 확인을 위해 서버에 접속합니다.</p>
+          <div class="service-tags"><span>Firebase</span><span>DeviceCheck · App Check</span><span>공개 랭킹</span><span>선택 진단</span><span>선택 참여</span><span>Gmail 문의</span></div>
           <details>
             <summary>처리 항목과 삭제 방법</summary>
             <dl class="fact-list">
               <div><dt>기기 내</dt><dd>제공자 연결 정보와 사용량 원본. 프롬프트·응답·코드·파일 내용·API 키·토큰·연결 이메일은 서버 분석 이벤트나 랭킹 요청에 포함하지 않습니다.</dd></div>
-              <div><dt>공개 관전</dt><dd>공개 랭킹을 불러올 때 DeviceCheck 기반 App Check 토큰과 함수 호출 IP가 앱 인증과 부정 사용 방지를 위해 처리됩니다. Firebase Auth 계정이나 랭킹 소유권 데이터는 만들지 않습니다.</dd></div>
-              <div><dt>선택 참여</dt><dd>사용자가 직접 참여를 켜면 공개 닉네임, 선택적 국가 코드, 1,000토큰 단위 사용량 집계, 제공자별 집계, 활동 시간 버킷과 익명 인증 식별자를 추가로 처리합니다.</dd></div>
-              <div><dt>자동 처리</dt><dd>Firebase Analytics의 앱·기능 상호작용 이벤트와 Crashlytics의 충돌·기기·OS 진단 정보.</dd></div>
-              <div><dt>국외 처리</dt><dd>랭킹 요청은 암호화된 HTTPS로 미국의 Google Cloud Functions(us-central1)와 Cloud Firestore(nam5)에 전달됩니다. Google은 Firebase 제공, 보안, 장애 분석을 위해 위 항목을 처리하고 Apple은 DeviceCheck·StoreKit 요청을 자체 정책에 따라 처리합니다.</dd></div>
-              <div><dt>보관·삭제</dt><dd>공개 관전 응답은 앱의 단기 캐시에만 두며 랭킹 소유권으로 저장하지 않습니다. 선택 참여 데이터는 참여 중 또는 삭제 요청 시까지 보관합니다. 기기 샌드박스 데이터는 앱 삭제로 제거되지만 무료 체험 사용 기록과 사용자가 저장한 Cookie 같은 Keychain 항목은 macOS 정책에 따라 남을 수 있습니다.</dd></div>
+              <div><dt>필수 통신</dt><dd>최소 지원 버전과 업데이트 안내를 확인하는 Firebase Remote Config가 Firebase 설치 식별자와 IP 등 기술 정보를 처리합니다. 공개 랭킹을 열면 조회 기간, DeviceCheck 기반 App Check 토큰과 함수 호출 IP가 앱 인증과 부정 사용 방지를 위해 처리됩니다. 관전만 할 때는 Firebase Auth 계정이나 랭킹 소유권 데이터를 만들지 않습니다.</dd></div>
+              <div><dt>선택 진단</dt><dd>사용자가 진단 공유에 동의한 동안에만 임의 UUID, 앱 버전·언어·시간대, 앱·설정·제공자 상태 같은 기능 상호작용과 Crashlytics의 충돌·기기·OS 진단을 처리합니다. 언제든 동의를 철회할 수 있으며 철회 즉시 새 Analytics·Crashlytics 수집을 중지하고 전송 대기 중인 충돌 보고서를 삭제합니다.</dd></div>
+              <div><dt>선택 참여</dt><dd>사용자가 랭킹 참여를 켜면 Firebase 익명 인증 식별자, 공개 닉네임, Locale 국가·지역 코드, 일간·주간·연간 사용량 버킷, 제공자별 버킷, 활동 시간 버킷, Kimi 요청 수와 제출 시각을 처리합니다. 토큰 수는 1,000단위로 내림 처리합니다.</dd></div>
+              <div><dt>참여 철회</dt><dd>랭킹 참여를 끄면 이후 제출과 식별 가능한 내 순위 조회를 중지하지만 이미 저장된 서버 데이터가 자동으로 삭제되지는 않습니다. 서버의 닉네임·익명 인증·집계를 삭제하려면 아래 개인정보 문의 이메일로 요청해 주세요.</dd></div>
+              <div><dt>피드백</dt><dd>피드백은 앱이 자동 전송하지 않습니다. 사용자가 기본 메일 앱에서 최종 전송하면 발신 이메일 주소, 제목·유형·메시지, 앱 버전, macOS 버전 및 사용자가 추가한 서명·첨부가 Gmail 지원 메일함으로 전달되어 문의 답변, 오류 확인과 제품 개선에 사용됩니다.</dd></div>
+              <div><dt>로컬 삭제</dt><dd>앱 삭제 시 기기 샌드박스의 설정과 캐시는 제거됩니다. 무료 체험 사용 기록, 사용자가 저장한 Cursor Cookie header와 임의 식별자 같은 Keychain 항목은 macOS 정책에 따라 재설치 후에도 남을 수 있습니다. 원본 AI 도구 파일과 계정은 삭제하지 않습니다.</dd></div>
+            </dl>
+          </details>
+          <details>
+            <summary>처리위탁·국외 이전 세부사항</summary>
+            <dl class="fact-list">
+              <div><dt>수탁자</dt><dd>Google LLC 및 Google이 공개한 Firebase·Google Cloud 하위처리자. 문의는 <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase 개인정보 페이지</a>의 지원 경로를 이용합니다.</dd></div>
+              <div><dt>목적</dt><dd>Remote Config 업데이트 안내, App Check 앱·기기 무결성 검증, 공개·참여 랭킹 제공, 선택한 Analytics·Crashlytics 진단 처리와 Gmail 기반 고객 문의 보관·응답.</dd></div>
+              <div><dt>이전 항목</dt><dd>위 필수 통신·선택 진단·선택 참여·피드백 항목. AI 도구의 인증 토큰, 이메일, 프롬프트·응답·코드·파일 내용과 원본 사용 로그는 포함하지 않습니다.</dd></div>
+              <div><dt>국가·위치</dt><dd>랭킹 Cloud Functions는 미국 아이오와(us-central1), Firestore는 미국 중부 다중 리전(nam5: 아이오와·오클라호마·사우스캐롤라이나)에서 처리·보관됩니다. Analytics, Crashlytics, Remote Config, App Check와 Gmail은 미국을 포함해 Google 또는 하위처리자가 시설을 운영하는 국가의 글로벌 인프라에서 처리될 수 있습니다.</dd></div>
+              <div><dt>시점·방법</dt><dd>앱 실행 중 업데이트 확인, 랭킹 열기·참여, 진단 동의 후 이벤트·충돌 발생, 사용자가 메일 전송을 확정하는 시점에 암호화된 HTTPS 또는 사용자의 메일 전송 경로로 이전됩니다.</dd></div>
+              <div><dt>보유기간</dt><dd>Crashlytics 충돌 자료와 관련 식별자는 90일, App Check 재사용 방지 토큰은 최대 30일이며 그 밖의 App Check 토큰은 유효기간(최대 7일) 후 보관하지 않습니다. Analytics 사용자·이벤트 수준 자료는 관리자가 설정한 최대 14개월 동안 보관될 수 있습니다. Remote Config 설치 식별자, 익명 Auth와 Firestore 랭킹 자료는 운영자가 삭제를 실행할 때까지, 문의 메일은 문의 목적 달성 또는 삭제 요청 처리 시까지 보관합니다. Google의 live·backup 삭제에는 서비스별 추가 처리기간이 적용될 수 있습니다.</dd></div>
+              <div><dt>거부·영향</dt><dd>진단 공유와 랭킹 참여는 앱 설정에서 거부하거나 철회할 수 있으며 핵심 로컬 사용량 기능은 계속 이용할 수 있습니다. 공개 랭킹 관전 또는 Remote Config 통신을 차단하면 해당 리더보드와 원격 업데이트 안내를 사용할 수 없습니다. 피드백 메일 전송을 취소하면 문의가 접수되지 않습니다. 이미 이전된 정보의 삭제·처리정지는 아래 이메일로 요청할 수 있습니다.</dd></div>
             </dl>
           </details>
         </article>
