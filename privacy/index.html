@@ -472,17 +472,17 @@
         </article>
 
         <article class="app-policy" id="shadewalk">
-          <div class="app-top"><h3>그늘길</h3><span class="platform">iOS</span></div>
-          <p class="summary">위치·HealthKit은 주로 기기에서 처리합니다. 날씨 조회와 사용자가 직접 보내는 틀린 지형 제보에는 필요한 좌표가 서버로 전송됩니다.</p>
-          <div class="service-tags"><span>HealthKit</span><span>Open-Meteo</span><span>Firebase</span><span>AdMob</span></div>
+          <div class="app-top"><h3>그늘길</h3><span class="platform">iOS · Android</span></div>
+          <p class="summary">위치·건강 데이터는 주로 기기에서 처리합니다. 장소 검색·날씨 조회와 사용자가 직접 보내는 틀린 지형 제보에는 필요한 좌표가 해당 서비스로 전송되고, 앱 개선을 위한 비민감 사용 통계를 수집합니다.</p>
+          <div class="service-tags"><span>HealthKit · Health Connect</span><span>Firebase</span><span>AdMob</span><span>Apple · Kakao · Google</span></div>
           <details>
             <summary>처리 항목과 삭제 방법</summary>
             <dl class="fact-list">
-              <div><dt>기기 내</dt><dd>현재 위치 표시, 걸음 수·건강 데이터, 저장 경로·즐겨찾기·걷기 기록. HealthKit 데이터는 광고나 마케팅에 사용하지 않습니다.</dd></div>
-              <div><dt>날씨 조회</dt><dd>날씨를 요청할 때 현재 좌표를 Open-Meteo에 전송하며 계정 정보는 함께 보내지 않습니다.</dd></div>
+              <div><dt>기기 내</dt><dd>현재 위치 표시와 그늘 경로 계산, 걸음 수·건강 데이터, 저장 경로·즐겨찾기·걷기 기록. 건강 데이터는 광고나 마케팅에 사용하지 않습니다.</dd></div>
+              <div><dt>검색·날씨 조회</dt><dd>장소 검색·역지오코딩·경로 요청 시 검색어와 관련 좌표가 Apple·Kakao에, 대기질·지원 지역 날씨 조회 시 좌표가 Google에 전송될 수 있습니다. 한국의 폭염 특보·자외선 지수는 자체 서버가 지역 단위로 중계하며 계정 정보는 함께 보내지 않습니다.</dd></div>
               <div><dt>선택 제보</dt><dd>사용자가 틀린 지형 제보를 제출하면 선택한 사진, 촬영 시각, 좌표, 선택적 장소명, 앱 버전·언어가 Firebase에 저장됩니다. 사진은 재인코딩해 원본 EXIF 메타데이터를 제거합니다.</dd></div>
-              <div><dt>자동 처리</dt><dd>Firebase Analytics의 기능 사용 집계와 AdMob의 광고·기기·성능 정보.</dd></div>
-              <div><dt>보관·삭제</dt><dd>로컬 데이터는 앱 삭제로 제거됩니다. 제보 삭제는 이메일로 요청할 수 있습니다.</dd></div>
+              <div><dt>자동 처리</dt><dd>앱 개선을 위해 Firebase Analytics로 비민감 기능 사용, 앱·기기 정보, 앱 인스턴스 식별자와 대략적 지역을 수집합니다. 검색어·좌표·경로명·산책·건강 데이터는 보내지 않습니다. AdMob은 광고 제공·측정을 위한 광고·기기·성능 정보를 처리할 수 있습니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 데이터는 앱 삭제로 제거됩니다. 제보는 접수일부터 180일 뒤 자동 삭제되며, 그 전에 지우려면 이메일로 요청할 수 있습니다.</dd></div>
             </dl>
           </details>
         </article>
