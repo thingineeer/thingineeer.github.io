@@ -41,7 +41,7 @@ function assert(condition, message) {
 
       assert(facts.title.includes('개인정보 처리방침'), `${width}px: document title missing`);
       assert(facts.language === 'ko', `${width}px: html lang must be ko`);
-      assert(facts.articles === 9 && facts.details === 9, `${width}px: app directory incomplete`);
+      assert(facts.articles === 9 && facts.details === 10, `${width}px: app directory incomplete`);
       assert(facts.main && facts.navLabel, `${width}px: semantic landmarks missing`);
       assert(facts.horizontalOverflow <= 1, `${width}px: horizontal overflow ${facts.horizontalOverflow}px`);
       assert(facts.emptyLinks === 0, `${width}px: link without href`);
