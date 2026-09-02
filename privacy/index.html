@@ -285,7 +285,7 @@
         </div>
         <div class="scope-item">
           <dt>최종 업데이트</dt>
-          <dd>2026. 9. 2.</dd>
+          <dd>2026. 9. 3.</dd>
         </div>
         <div class="scope-item">
           <dt>시행일</dt>
@@ -475,16 +475,20 @@
         </article>
 
         <article class="app-policy" id="seulgeum">
-          <div class="app-top"><h3>슬금슬금 성지키기</h3><span class="platform">Android</span></div>
-          <p class="summary">게임 진행은 전부 기기에 저장하며, 광고 제공·측정을 위해 Google AdMob이 광고 관련 정보를 처리합니다. 계정 가입과 서버 저장은 없습니다.</p>
-          <div class="service-tags"><span>AdMob</span><span>UMP</span></div>
+          <div class="app-top"><h3>슬금슬금 성지키기</h3><span class="platform">iOS · Android</span></div>
+          <p class="summary">게임 진행은 전부 기기에 저장하며, 광고 제공·측정을 위해 Google AdMob이, 앱 개선을 위해 Firebase Analytics·Crashlytics가 비민감 정보를 처리합니다. 인앱 구매는 App Store와 Google Play가 처리하고, iOS에서는 Game Center 리더보드·업적을 사용합니다. 계정 가입과 서버 저장은 없습니다.</p>
+          <div class="service-tags"><span>AdMob</span><span>UMP</span><span>Firebase</span><span>App Store · Google Play 결제</span><span>Game Center</span></div>
           <details>
             <summary>처리 항목과 삭제 방법</summary>
             <dl class="fact-list">
-              <div><dt>기기 내</dt><dd>스테이지·라운드 진행, 보유 재화와 훈장·유물, 편성, 구매 상태, 설정. 서버로 전송하지 않습니다.</dd></div>
-              <div><dt>광고</dt><dd>AdMob이 광고 제공·측정을 위해 광고 ID, 기기·앱 정보, 광고 노출·상호작용 정보를 처리할 수 있습니다.</dd></div>
+              <div><dt>기기 내</dt><dd>스테이지·라운드 진행, 보유 재화와 훈장·유물, 편성, 구매 상태(광고 제거·시즌 패스·멤버십 여부), 설정. 서버로 전송하지 않습니다.</dd></div>
+              <div><dt>광고</dt><dd>AdMob이 광고 제공·측정을 위해 광고 ID, 기기·앱 정보, 광고 노출·상호작용 정보를 처리할 수 있습니다. 광고는 보상형(사용자가 버튼을 눌러 시청), 스테이지 사이 전면 광고, 앱을 다시 열 때의 앱 오픈 광고 세 종류이며, 광고 제거나 멤버십을 구매하면 전면·앱 오픈 광고가 나오지 않습니다. iOS에서는 추적 권한(ATT)을 광고 식별자 용도로만 요청하고 거절하면 비개인화 광고를 표시합니다.</dd></div>
               <div><dt>광고 동의</dt><dd>필요한 지역에서는 Google UMP를 통해 동의 상태를 확인한 뒤 광고를 요청합니다.</dd></div>
-              <div><dt>보관·삭제</dt><dd>로컬 진행 데이터는 앱 삭제로 제거됩니다. 광고 SDK 데이터 관련 요청은 이메일로 접수합니다.</dd></div>
+              <div><dt>인앱 구매</dt><dd>보석, 스타터 팩, 시즌 패스, 광고 제거, 월정액 멤버십의 결제와 영수증은 App Store 또는 Google Play가 처리합니다. 개발자는 구매자의 이름·이메일·결제 수단을 받지 않으며, 구매 여부만 기기 안에 저장해 혜택을 적용합니다. 구매 복구는 스토어 계정 기준으로 처리됩니다.</dd></div>
+              <div><dt>Game Center (iOS)</dt><dd>앱 시작 시 한 번 인증을 요청하며 거절해도 게임은 그대로 진행됩니다. 최고 스테이지 점수와 업적 달성 정보가 Apple Game Center에 전송되어 Apple의 정책에 따라 처리됩니다. 개발자 서버는 없습니다.</dd></div>
+              <div><dt>자동 처리</dt><dd>앱 개선을 위해 Firebase Analytics로 스테이지 진행·버튼 탭 같은 비민감 사용 이벤트, 앱·기기 정보, 앱 인스턴스 식별자와 대략적 지역을, Crashlytics로 비정상 종료 정보를 수집합니다. 이름·이메일·결제 정보는 포함되지 않습니다.</dd></div>
+              <div><dt>보관·삭제</dt><dd>로컬 진행 데이터는 앱 삭제로 제거됩니다. 광고·분석 SDK가 처리한 데이터의 삭제 요청은 아래 이메일로 접수하며, 앱 인스턴스 식별자 기준으로 30일 이내에 처리합니다. Game Center 기록은 iOS 설정의 Game Center에서 관리할 수 있습니다.</dd></div>
+              <div><dt>연락처</dt><dd>dlaudwls1203@gmail.com</dd></div>
             </dl>
           </details>
         </article>
