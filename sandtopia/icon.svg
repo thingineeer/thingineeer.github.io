@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="Sandtopia">
+  <rect width="128" height="128" rx="28" fill="#0f1f4d"/>
+  <rect x="26" y="22" width="18" height="18" rx="4" fill="#ffd24a"/>
+  <rect x="54" y="34" width="18" height="18" rx="4" fill="#ffd24a" opacity="0.75"/>
+  <rect x="84" y="26" width="18" height="18" rx="4" fill="#ffd24a" opacity="0.5"/>
+  <rect x="26" y="64" width="18" height="18" rx="4" fill="#ffd24a" opacity="0.6"/>
+  <rect x="54" y="64" width="18" height="18" rx="4" fill="#ffd24a"/>
+  <rect x="82" y="64" width="18" height="18" rx="4" fill="#ffd24a" opacity="0.8"/>
+  <rect x="20" y="92" width="88" height="16" rx="6" fill="#ffd24a"/>
+</svg>
