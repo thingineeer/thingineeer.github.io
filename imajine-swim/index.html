@@ -106,6 +106,15 @@
     <div class="card"><p>Email: <a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a> · ImaJine, Seoul, Republic of Korea</p></div>
   </section>
 
+  <section id="fgs">
+    <h2>포그라운드 서비스 사용 안내 / Foreground service use</h2>
+    <div class="card">
+      <p>수영을 시작하면 화면이 꺼져도 기록이 끊기지 않도록 포그라운드 서비스로 동작합니다. 실내 수영장에서는 심박과 거리, 랩을 받기 위해 <code>health</code> 타입을, 오픈 워터에서는 GPS 거리와 경로를 위해 <code>location</code> 타입을 함께 사용합니다. 사용자가 시작을 누른 뒤부터 종료를 누를 때까지만 동작하며, 그동안 진행 중 알림이 계속 표시됩니다.</p>
+      <p class="en">While a swim is running the app keeps a foreground service so tracking continues with the screen off. Pool mode uses the <code>health</code> type for heart rate, distance and laps. Open water adds the <code>location</code> type for GPS distance and route. It runs only between the user pressing Start and End, with an ongoing notification visible the whole time.</p>
+      <video src="foreground-service-demo.mp4" controls playsinline width="320" style="max-width:100%;border-radius:14px;background:#000"></video>
+    </div>
+  </section>
+
   <footer>© 2026 ImaJine (이매진). ImaJine Swim is an independent app by ImaJine and is not affiliated with any watch manufacturer.</footer>
 </main>
 </body>
