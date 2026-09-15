@@ -17,7 +17,9 @@ Do not publish the UsageMaster revision until the operator has confirmed:
   complete and has a documented deletion-request procedure;
 - the Firestore database remains in `nam5` and ranking Functions remain in
   `us-central1`;
-- opting out of diagnostics stops Analytics and Crashlytics immediately;
+- anonymous diagnostics (Analytics and Crashlytics) are always on with no
+  in-app opt-out, as the notice states; deletion of transferred diagnostics is
+  handled through the support email;
 - disabling ranking stops future submissions, and support can delete the
   existing Firebase Auth user, nickname claim, profile, submission, rank and
   migration records within a documented response period;
