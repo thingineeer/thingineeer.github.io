@@ -202,6 +202,15 @@
     .fact-list div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 12px; }
     .fact-list dt { color: var(--muted); font-family: var(--mono); font-size: 12px; }
     .fact-list dd { margin: 0; color: var(--ink-subtle); font-size: 14px; }
+    .lang-toggle { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-size: 13px; color: var(--muted); }
+    .lang-toggle button { padding: 4px 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink-subtle); font: inherit; cursor: pointer; }
+    .lang-toggle button[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); color: var(--ink); font-weight: 700; }
+    .policy-lang[hidden] { display: none; }
+    .policy-dates { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+    .policy-section { margin-top: 18px; border-top: 1px solid var(--line); padding-top: 14px; }
+    .policy-section h4 { margin: 0 0 8px; color: var(--accent); font-size: 14px; font-weight: 700; }
+    .policy-section p, .policy-section li { margin: 0 0 8px; color: var(--ink-subtle); font-size: 14px; }
+    .policy-section ul { margin: 0; padding-left: 18px; }
 
     .policy-section { max-width: 720px; padding-top: 4px; }
     .policy-section ul { margin: 16px 0 0; padding-left: 22px; }
@@ -285,7 +294,7 @@
         </div>
         <div class="scope-item">
           <dt>최종 업데이트</dt>
-          <dd>2026. 9. 3.</dd>
+          <dd>2026. 9. 29.</dd>
         </div>
         <div class="scope-item">
           <dt>시행일</dt>
@@ -342,32 +351,149 @@
       <div class="app-grid">
         <article class="app-policy" id="usagemaster">
           <div class="app-top"><h3>UsageMaster</h3><span class="platform">macOS</span></div>
-          <p class="summary">AI 제공자 자격 증명과 원본 사용 로그는 기기 밖으로 보내지 않습니다. 진단 공유와 랭킹 참여는 기본적으로 꺼져 있으며, 사용자가 각각 선택한 경우에만 관련 정보 전송을 시작합니다. 공개 랭킹 관전은 참여하지 않아도 앱·기기 무결성 확인을 위해 서버에 접속합니다.</p>
-          <div class="service-tags"><span>Firebase</span><span>DeviceCheck · App Check</span><span>공개 랭킹</span><span>선택 진단</span><span>선택 참여</span><span>Gmail 문의</span></div>
-          <details>
-            <summary>처리 항목과 삭제 방법</summary>
-            <dl class="fact-list">
-              <div><dt>기기 내</dt><dd>제공자 연결 정보와 사용량 원본. 프롬프트·응답·코드·파일 내용·API 키·토큰·연결 이메일은 서버 분석 이벤트나 랭킹 요청에 포함하지 않습니다.</dd></div>
-              <div><dt>필수 통신</dt><dd>최소 지원 버전과 업데이트 안내를 확인하는 Firebase Remote Config가 Firebase 설치 식별자와 IP 등 기술 정보를 처리합니다. 공개 랭킹을 열면 조회 기간, DeviceCheck 기반 App Check 토큰과 함수 호출 IP가 앱 인증과 부정 사용 방지를 위해 처리됩니다. 관전만 할 때는 Firebase Auth 계정이나 랭킹 소유권 데이터를 만들지 않습니다.</dd></div>
-              <div><dt>선택 진단</dt><dd>사용자가 진단 공유에 동의한 동안에만 임의 UUID, 앱 버전·언어·시간대, 앱·설정·제공자 상태 같은 기능 상호작용과 Crashlytics의 충돌·기기·OS 진단을 처리합니다. 언제든 동의를 철회할 수 있으며 철회 즉시 새 Analytics·Crashlytics 수집을 중지하고 전송 대기 중인 충돌 보고서를 삭제합니다.</dd></div>
-              <div><dt>선택 참여</dt><dd>사용자가 랭킹 참여를 켜면 Firebase 익명 인증 식별자, 공개 닉네임, Locale 국가·지역 코드, 일간·주간·연간 사용량 버킷, 제공자별 버킷, 활동 시간 버킷, Kimi 요청 수와 제출 시각을 처리합니다. 토큰 수는 1,000단위로 내림 처리합니다.</dd></div>
-              <div><dt>참여 철회</dt><dd>랭킹 참여를 끄면 이후 제출과 식별 가능한 내 순위 조회를 중지하지만 이미 저장된 서버 데이터가 자동으로 삭제되지는 않습니다. 서버의 닉네임·익명 인증·집계를 삭제하려면 아래 개인정보 문의 이메일로 요청해 주세요.</dd></div>
-              <div><dt>피드백</dt><dd>피드백은 앱이 자동 전송하지 않습니다. 사용자가 기본 메일 앱에서 최종 전송하면 발신 이메일 주소, 제목·유형·메시지, 앱 버전, macOS 버전 및 사용자가 추가한 서명·첨부가 Gmail 지원 메일함으로 전달되어 문의 답변, 오류 확인과 제품 개선에 사용됩니다.</dd></div>
-              <div><dt>로컬 삭제</dt><dd>앱 삭제 시 기기 샌드박스의 설정과 캐시는 제거됩니다. 무료 체험 사용 기록, 사용자가 저장한 Cursor Cookie header와 임의 식별자 같은 Keychain 항목은 macOS 정책에 따라 재설치 후에도 남을 수 있습니다. 원본 AI 도구 파일과 계정은 삭제하지 않습니다.</dd></div>
-            </dl>
-          </details>
-          <details>
-            <summary>처리위탁·국외 이전 세부사항</summary>
-            <dl class="fact-list">
-              <div><dt>수탁자</dt><dd>Google LLC 및 Google이 공개한 Firebase·Google Cloud 하위처리자. 문의는 <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">Firebase 개인정보 페이지</a>의 지원 경로를 이용합니다.</dd></div>
-              <div><dt>목적</dt><dd>Remote Config 업데이트 안내, App Check 앱·기기 무결성 검증, 공개·참여 랭킹 제공, 선택한 Analytics·Crashlytics 진단 처리와 Gmail 기반 고객 문의 보관·응답.</dd></div>
-              <div><dt>이전 항목</dt><dd>위 필수 통신·선택 진단·선택 참여·피드백 항목. AI 도구의 인증 토큰, 이메일, 프롬프트·응답·코드·파일 내용과 원본 사용 로그는 포함하지 않습니다.</dd></div>
-              <div><dt>국가·위치</dt><dd>랭킹 Cloud Functions는 미국 아이오와(us-central1), Firestore는 미국 중부 다중 리전(nam5: 아이오와·오클라호마·사우스캐롤라이나)에서 처리·보관됩니다. Analytics, Crashlytics, Remote Config, App Check와 Gmail은 미국을 포함해 Google 또는 하위처리자가 시설을 운영하는 국가의 글로벌 인프라에서 처리될 수 있습니다.</dd></div>
-              <div><dt>시점·방법</dt><dd>앱 실행 중 업데이트 확인, 랭킹 열기·참여, 진단 동의 후 이벤트·충돌 발생, 사용자가 메일 전송을 확정하는 시점에 암호화된 HTTPS 또는 사용자의 메일 전송 경로로 이전됩니다.</dd></div>
-              <div><dt>보유기간</dt><dd>Crashlytics 충돌 자료와 관련 식별자는 90일, App Check 재사용 방지 토큰은 최대 30일이며 그 밖의 App Check 토큰은 유효기간(최대 7일) 후 보관하지 않습니다. Analytics 사용자·이벤트 수준 자료는 관리자가 설정한 최대 14개월 동안 보관될 수 있습니다. Remote Config 설치 식별자, 익명 Auth와 Firestore 랭킹 자료는 운영자가 삭제를 실행할 때까지, 문의 메일은 문의 목적 달성 또는 삭제 요청 처리 시까지 보관합니다. Google의 live·backup 삭제에는 서비스별 추가 처리기간이 적용될 수 있습니다.</dd></div>
-              <div><dt>거부·영향</dt><dd>진단 공유와 랭킹 참여는 앱 설정에서 거부하거나 철회할 수 있으며 핵심 로컬 사용량 기능은 계속 이용할 수 있습니다. 공개 랭킹 관전 또는 Remote Config 통신을 차단하면 해당 리더보드와 원격 업데이트 안내를 사용할 수 없습니다. 피드백 메일 전송을 취소하면 문의가 접수되지 않습니다. 이미 이전된 정보의 삭제·처리정지는 아래 이메일로 요청할 수 있습니다.</dd></div>
-            </dl>
-          </details>
+<!-- usagemaster-policy:start -->
+          <div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-set-lang="ko" aria-pressed="true">한국어</button><span aria-hidden="true">|</span><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
+          <div class="policy-lang" lang="ko" data-lang="ko">
+            <p class="policy-dates"><span>시행일 2026. 8. 29.</span><span>최종 업데이트 2026. 9. 24.</span></p>
+            <p class="summary">AI 제공자의 자격 증명과 원본 사용 기록은 기기 밖으로 보내지 않습니다. 앱 개선을 위한 익명 진단(Firebase Analytics·Crashlytics)은 앱을 실행하는 동안 항상 수집하며, 랭킹 참여는 기본적으로 꺼져 있고 사용자가 켠 경우에만 관련 정보를 전송합니다. 공개 랭킹 관전은 참여하지 않아도 앱·기기 무결성 확인을 위해 서버에 접속합니다.</p>
+            <p class="summary">UsageMaster는 AI 답변이나 콘텐츠를 생성하지 않고, 연결된 AI 도구의 사용량을 로컬에서 표시합니다.</p>
+            <section class="policy-section">
+              <h4>기기 안에서 처리하는 것</h4>
+              <ul>
+                <li>로컬 기록형 provider(Claude, Codex, OpenCode Go 등)는 각 도구가 이 Mac 에 남긴 사용량 파일·데이터베이스만 읽으며 외부로 전송하지 않습니다.</li>
+                <li>Provider가 소유한 인증 토큰은 사용량 조회 중에만 읽고 앱 Keychain에 복사하거나 로그·Firebase로 전송하지 않습니다.</li>
+                <li>CLI 자격을 재사용하는 provider(Gemini, Codex 서버 조회 등)는 도구가 저장한 액세스 토큰을 공식 사용량 API 요청 1회에만 쓰고 즉시 폐기합니다. 토큰을 갱신(refresh)하지 않습니다.</li>
+                <li>사용자가 직접 붙여넣은 API 키·Cookie header 는 이 앱 전용 Keychain(이 기기만, 동기화 없음)에만 저장하고 그 provider 의 공식 사용량 API 요청 헤더에만 씁니다. 설정에서 언제든 삭제할 수 있으며 화면·로그·진단·랭킹 어디에도 나가지 않습니다.</li>
+                <li>Pro 의 Claude 계정 전환은 로그인 토큰 블록을 이 앱 전용 Keychain 에 보관했다가 Claude Code 항목에 그대로 옮깁니다. 토큰을 갱신하거나 서버로 보내지 않으며, 계정 이메일 확인을 위한 프로필 조회만 원문 1건당 최대 1회 합니다.</li>
+                <li>연결된 계정 이메일은 로컬에서 화면 표시용으로만 사용하며, 영속 저장하거나 외부로 전송하지 않습니다.</li>
+                <li>프롬프트·응답·코드·파일 내용·API 키·토큰·이메일은 서버 분석 이벤트나 랭킹 요청에 포함하지 않습니다.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>필수 통신</h4>
+              <p>Firebase Remote Config는 최소 지원 버전과 App Store 업데이트 안내에만 사용하며, AI 사용량·이메일·토큰·프롬프트·응답·파일 내용은 요청에 포함하지 않습니다.</p>
+              <p>이때 Firebase 설치 식별자와 IP 같은 기술 정보가 처리됩니다. 공개 랭킹을 열면 조회 기간, DeviceCheck 기반 App Check 토큰과 함수 호출 IP 가 앱 인증과 부정 사용 방지를 위해 처리됩니다. 관전만 할 때는 Firebase Auth 계정이나 랭킹 소유권 데이터를 만들지 않습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>익명 진단 (항상 수집)</h4>
+              <p>전송하는 항목은 앱 버전·언어·시간대, 앱 실행·화면 열기·새로고침·provider 연결 상태 같은 사용 흐름과 크래시 리포트입니다. 분석 이벤트에는 임의 식별자가 연결되며 크래시 리포트에는 별도 사용자 ID를 설정하지 않습니다. 사용량 수치·토큰·프롬프트·이메일·파일 경로는 전송하지 않으며, 앱 안에서 끄는 설정은 없습니다.</p>
+              <p>앱을 삭제하면 수집이 중단되며, 이미 전송된 진단 자료의 삭제는 아래 이메일로 요청할 수 있습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>랭킹 참여와 철회</h4>
+              <p>랭킹 참여를 켜면 Firebase 익명 인증 식별자, 공개 닉네임, Pro 여부, Locale 국가·지역 코드, 일간·주간·연간 사용량 버킷, provider 별 버킷, 활동 시간 버킷, Kimi 요청 수와 제출 시각을 처리합니다. 토큰 수는 1,000 단위로 내림합니다.</p>
+              <p>참여를 끄면 이후 제출과 식별 가능한 내 순위 조회를 중지하지만, 이미 저장된 서버 데이터가 자동으로 삭제되지는 않습니다. 서버의 닉네임·익명 인증·집계 삭제는 아래 이메일로 요청해 주세요.</p>
+            </section>
+            <section class="policy-section">
+              <h4>피드백</h4>
+              <p>피드백은 앱에서 UsageMaster의 Firebase 서버로 바로 전송되어 저장됩니다. 메일 앱을 거치지 않습니다.</p>
+              <p>저장되는 항목은 제목, 유형, 메시지, 앱 버전, macOS 버전, 앱 언어, 배포 채널(App Store·Direct), 익명 Firebase ID 뿐입니다. 이메일 주소, 계정, 사용량, 파일 경로, 토큰은 포함하지 않습니다.</p>
+              <p>저장된 피드백의 삭제 요청은 지원 이메일 dlaudwls1203@gmail.com 으로 보내 주세요.</p>
+            </section>
+            <section class="policy-section">
+              <h4>처리위탁과 국외 이전</h4>
+              <ul>
+                <li>수탁자: Google LLC 및 Google 이 공개한 Firebase·Google Cloud 하위처리자. Apple 은 App Store 결제·복원과 DeviceCheck 를 처리합니다.</li>
+                <li>목적: Remote Config 업데이트 안내, App Check 앱·기기 무결성 검증, 공개·참여 랭킹 제공, Analytics·Crashlytics 익명 진단, 피드백 보관·응답.</li>
+                <li>이전 항목: 위 필수 통신·익명 진단·랭킹 참여·피드백 항목. AI 도구의 인증 토큰, 이메일, 프롬프트·응답·코드·파일 내용과 원본 사용 기록은 포함하지 않습니다.</li>
+                <li>국가·위치: 랭킹·피드백 Cloud Functions 는 미국 아이오와(us-central1), Firestore 는 미국 중부 다중 리전(nam5)에서 처리·보관됩니다. Analytics, Crashlytics, Remote Config, App Check 는 미국을 포함해 Google 또는 하위처리자가 시설을 운영하는 국가에서 처리될 수 있습니다.</li>
+                <li>시점·방법: 앱 실행 중 업데이트 확인, 랭킹 열기·참여, 이벤트·충돌 발생, 피드백 전송 시점에 암호화된 HTTPS 로 이전됩니다.</li>
+                <li>App Store 구매·복원은 Apple의 StoreKit과 현재 Mac App Store 계정이 처리하며, Apple Account 이메일을 앱에 저장하지 않습니다.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>보유기간</h4>
+              <p>Crashlytics 충돌 자료와 관련 식별자는 90일, App Check 재사용 방지 토큰은 최대 30일이며 그 밖의 App Check 토큰은 유효기간(최대 7일) 후 보관하지 않습니다. Analytics 사용자·이벤트 수준 자료는 최대 14개월 보관될 수 있습니다.</p>
+              <p>Remote Config 설치 식별자, 익명 Auth 와 Firestore 의 랭킹·피드백 자료는 운영자가 삭제를 실행할 때까지 보관합니다. Google 의 live·backup 삭제에는 서비스별 추가 처리 기간이 적용될 수 있습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>앱을 삭제하면</h4>
+              <p>앱을 삭제하면 앱 컨테이너의 설정과 캐시는 제거됩니다. 기기당 1회 무료 체험 기록, 사용자가 저장한 API 키·Cookie header, Pro 계정 전환용 토큰, 익명 분석 식별자처럼 앱 Keychain 에 보관된 항목은 macOS 정책에 따라 남아 재설치 후에도 사용될 수 있습니다. 각 AI 도구의 원본 토큰과 사용량 파일에는 영향을 주지 않습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>이용자 권리와 거부</h4>
+              <p>본인 데이터의 열람·정정·삭제·처리 정지를 아래 이메일로 요청할 수 있습니다. 본인 확인에 필요한 최소 정보만 추가로 요청하며, 처리 후 확인 자료를 지체 없이 삭제합니다. 법령상 보관 의무나 보안·부정 사용 방지상 필요한 데이터가 있으면 항목과 기간을 안내합니다.</p>
+              <p>랭킹 참여는 설정에서 거부·철회할 수 있고 핵심 로컬 사용량 기능은 계속 쓸 수 있습니다. 익명 진단은 앱 안에서 끌 수 없으며 앱을 삭제하면 중단됩니다. 공개 랭킹 관전이나 Remote Config 통신을 차단하면 리더보드와 원격 업데이트 안내를 사용할 수 없습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>방침 변경</h4>
+              <p>앱 기능, SDK 또는 법적 요구사항이 바뀌면 이 문서를 갱신합니다. 중요한 변경은 시행 전에 앱 또는 웹 페이지에서 알리고, 추가 동의가 필요한 처리는 동의를 받은 뒤 시작합니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>문의</h4>
+            </section>
+          </div>
+          <div class="policy-lang" lang="en" data-lang="en" hidden>
+            <p class="policy-dates"><span>Effective August 29, 2026</span><span>Last updated September 24, 2026</span></p>
+            <p class="summary">AI provider credentials and original usage logs are never sent off the device. Anonymous diagnostics for improving the app (Firebase Analytics and Crashlytics) are always collected while the app is running, while ranking participation is off by default and related information is sent only if the user turns it on. Even without participating, viewing the public ranking connects to the server to verify app and device integrity.</p>
+            <p class="summary">UsageMaster does not generate AI responses or content; it displays usage of connected AI tools locally.</p>
+            <section class="policy-section">
+              <h4>What is processed on-device</h4>
+              <ul>
+                <li>For local-record providers (Claude, Codex, OpenCode Go, etc.), only the usage files and databases each tool has left on this Mac are read, without sending them externally.</li>
+                <li>Provider-owned authentication tokens are read only while checking usage. They are not copied to the app Keychain or sent to logs or Firebase.</li>
+                <li>For providers that reuse CLI credentials (Gemini, Codex server lookup, etc.), the access token the tool has stored is used only once for an official usage API request and is discarded immediately afterward. The token is not renewed (refresh).</li>
+                <li>An API key or Cookie header the user pastes in is stored only in this app&#x27;s dedicated Keychain (this device only, no sync) and used only in that provider&#x27;s official usage API request header. It can be deleted at any time in Settings and never appears on screen, in logs, in diagnostics, or in the ranking.</li>
+                <li>Claude account switching in Pro stores the login token block in this app&#x27;s dedicated Keychain, then transfers it unchanged to the Claude Code entry. The token is not renewed or sent to a server; at most one profile lookup per original account is made, solely to confirm the account email.</li>
+                <li>Connected account emails are used locally for display only, and are never stored persistently or sent externally.</li>
+                <li>Prompts, responses, code, file contents, API keys, tokens, and emails are never included in server analytics events or ranking requests.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>Essential communications</h4>
+              <p>Firebase Remote Config is used only for the minimum supported version and App Store update notices. Requests do not include AI usage, email, tokens, prompts, responses, or file contents.</p>
+              <p>In that case, technical information such as the Firebase installation identifier and IP address is processed. Opening the public ranking processes the query period, a DeviceCheck-based App Check token, and the function-call IP address for app authentication and abuse prevention. When only viewing, no Firebase Auth account or ranking ownership data is created.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Anonymous diagnostics (always collected)</h4>
+              <p>What&#x27;s sent is the app version, language, and time zone, plus usage flow such as app launches, screen opens, refreshes, and provider connection status, along with crash reports. Analytics events are linked to a random identifier, and crash reports do not set a separate user ID. Usage figures, tokens, prompts, emails, and file paths are never sent, and there&#x27;s no in-app setting to turn this off.</p>
+              <p>Deleting the app stops collection, and deletion of diagnostic data already sent can be requested via the email below.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Ranking participation and opt-out</h4>
+              <p>When ranking participation is on, the anonymous Firebase authentication identifier, public nickname, Pro status, Locale country/region code, daily, weekly, and yearly usage buckets, per-provider buckets, activity-time buckets, and Kimi request count and submission time are processed. Token counts are rounded down to the nearest 1,000.</p>
+              <p>Turning participation off stops further submissions and lookups of your identifiable rank, but already-stored server data is not automatically deleted. Please request deletion of the nickname, anonymous authentication, and aggregated data on the server via the email below.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Feedback</h4>
+              <p>Feedback is sent directly from the app to UsageMaster&#x27;s Firebase backend and stored there. It never goes through a mail app.</p>
+              <p>The only items stored are title, type, message, app version, macOS version, app language, distribution channel (App Store or Direct), and the anonymous Firebase ID. Email addresses, accounts, usage data, file paths, and tokens are not included.</p>
+              <p>To have stored feedback deleted, email the support address dlaudwls1203@gmail.com.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Data processors and international transfers</h4>
+              <ul>
+                <li>Processor: Google LLC and the Firebase and Google Cloud sub-processors Google publicly discloses. Apple processes App Store payments and restores, and DeviceCheck.</li>
+                <li>Purpose: Remote Config update notifications, App Check app and device integrity verification, providing the public and participation rankings, anonymous diagnostics via Analytics and Crashlytics, and storing and responding to feedback.</li>
+                <li>Items transferred: the essential communications, anonymous diagnostics, ranking participation, and feedback items described above. Does not include AI tool authentication tokens, emails, prompts, responses, code, file contents, or original usage logs.</li>
+                <li>Country/location: ranking and feedback Cloud Functions are processed and stored in Iowa, USA (us-central1), while Firestore is processed and stored in the central US multi-region (nam5). Analytics, Crashlytics, Remote Config, and App Check may be processed in the United States or any other country where Google or its sub-processors operate facilities.</li>
+                <li>Timing/method: transferred via encrypted HTTPS when checking for updates while the app is running, when opening or participating in the ranking, when events or crashes occur, and when sending feedback.</li>
+                <li>App Store purchases and restores are handled by Apple&#x27;s StoreKit and the current Mac App Store account; the Apple Account email is not stored in the app.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>Retention period</h4>
+              <p>Crashlytics crash data and related identifiers are retained for 90 days, App Check anti-replay tokens for up to 30 days, while other App Check tokens are not retained after their validity period (up to 7 days) expires. Analytics user- and event-level data may be retained for up to 14 months.</p>
+              <p>The Remote Config installation identifier, anonymous Auth, and Firestore ranking/feedback data are retained until the operator performs deletion. Google&#x27;s live and backup deletion may be subject to an additional service-specific processing period.</p>
+            </section>
+            <section class="policy-section">
+              <h4>If you delete the app</h4>
+              <p>Deleting the app removes the app container&#x27;s settings and cache. Items stored in the app&#x27;s Keychain - such as the once-per-device free trial record, a user-saved API key or Cookie header, a Pro account-switching token, and an anonymous analytics identifier - may remain per macOS policy and can be used after reinstallation. This does not affect each AI tool&#x27;s original tokens and usage files.</p>
+            </section>
+            <section class="policy-section">
+              <h4>User rights and objection</h4>
+              <p>You can request access, correction, deletion, or suspension of processing of your data via the email below. Only the minimum additional information needed to verify your identity will be requested, and verification material will be deleted without delay after processing. If there is data that must be retained due to a legal obligation or for security and abuse-prevention purposes, you will be informed of the items and the retention period.</p>
+              <p>Ranking participation can be declined or withdrawn in Settings, and core local usage features remain usable. Anonymous diagnostics cannot be turned off within the app and stop only when the app is deleted. Blocking public ranking viewing or Remote Config communication makes the leaderboard and remote update notices unavailable.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Policy changes</h4>
+              <p>This document will be updated when app features, SDKs, or legal requirements change. Material changes will be announced in the app or on the web page before taking effect, and any processing requiring additional consent will begin only after that consent is obtained.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Contact</h4>
+            </section>
+          </div>
+          <!-- usagemaster-policy:end -->
         </article>
 
         <article class="app-policy" id="slidepic">
@@ -652,6 +778,21 @@
       };
 
       go.addEventListener('click', () => openApp(select.value));
+
+      const langKey = 'usagemaster-policy-lang';
+      const setLang = (lang) => {
+        document.querySelectorAll('.policy-lang').forEach((el) => { el.hidden = el.dataset.lang !== lang; });
+        document.querySelectorAll('[data-set-lang]').forEach((btn) => {
+          btn.setAttribute('aria-pressed', String(btn.dataset.setLang === lang));
+        });
+        try { localStorage.setItem(langKey, lang); } catch (_) {}
+      };
+      document.querySelectorAll('[data-set-lang]').forEach((btn) => {
+        btn.addEventListener('click', () => setLang(btn.dataset.setLang));
+      });
+      let saved = null;
+      try { saved = localStorage.getItem(langKey); } catch (_) {}
+      setLang(saved || ((navigator.language || '').toLowerCase().startsWith('ko') ? 'ko' : 'en'));
       select.addEventListener('change', () => {
         if (select.value) openApp(select.value);
       });
