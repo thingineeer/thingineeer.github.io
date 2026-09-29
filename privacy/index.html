@@ -350,29 +350,37 @@
 
       <div class="app-grid">
         <article class="app-policy" id="usagemaster">
-          <div class="app-top"><h3>UsageMaster</h3><span class="platform">macOS</span></div>
+          <div class="app-top"><h3>UsageMaster</h3><span class="platform">iOS · macOS</span></div>
 <!-- usagemaster-policy:start -->
           <div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-set-lang="ko" aria-pressed="true">한국어</button><span aria-hidden="true">|</span><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
           <div class="policy-lang" lang="ko" data-lang="ko">
-            <p class="policy-dates"><span>시행일 2026. 8. 29.</span><span>최종 업데이트 2026. 9. 24.</span></p>
+            <p class="policy-dates"><span>시행일 2026. 8. 21.</span><span>최종 업데이트 2026. 9. 29.</span></p>
             <p class="summary">AI 제공자의 자격 증명과 원본 사용 기록은 기기 밖으로 보내지 않습니다. 앱 개선을 위한 익명 진단(Firebase Analytics·Crashlytics)은 앱을 실행하는 동안 항상 수집하며, 랭킹 참여는 기본적으로 꺼져 있고 사용자가 켠 경우에만 관련 정보를 전송합니다. 공개 랭킹 관전은 참여하지 않아도 앱·기기 무결성 확인을 위해 서버에 접속합니다.</p>
             <p class="summary">UsageMaster는 AI 답변이나 콘텐츠를 생성하지 않고, 연결된 AI 도구의 사용량을 로컬에서 표시합니다.</p>
             <section class="policy-section">
               <h4>기기 안에서 처리하는 것</h4>
               <ul>
                 <li>로컬 기록형 provider(Claude, Codex, OpenCode Go 등)는 각 도구가 이 Mac 에 남긴 사용량 파일·데이터베이스만 읽으며 외부로 전송하지 않습니다.</li>
-                <li>Provider가 소유한 인증 토큰은 사용량 조회 중에만 읽고 앱 Keychain에 복사하거나 로그·Firebase로 전송하지 않습니다.</li>
+                <li>Provider가 소유한 인증 토큰은 사용량 조회 중에만 읽고 로그·Firebase로 전송하지 않습니다. Pro 계정 전환을 쓸 때만 그 토큰 블록을 이 앱 전용 Keychain 에 보관합니다.</li>
                 <li>CLI 자격을 재사용하는 provider(Gemini, Codex 서버 조회 등)는 도구가 저장한 액세스 토큰을 공식 사용량 API 요청 1회에만 쓰고 즉시 폐기합니다. 토큰을 갱신(refresh)하지 않습니다.</li>
                 <li>사용자가 직접 붙여넣은 API 키·Cookie header 는 이 앱 전용 Keychain(이 기기만, 동기화 없음)에만 저장하고 그 provider 의 공식 사용량 API 요청 헤더에만 씁니다. 설정에서 언제든 삭제할 수 있으며 화면·로그·진단·랭킹 어디에도 나가지 않습니다.</li>
                 <li>Pro 의 Claude 계정 전환은 로그인 토큰 블록을 이 앱 전용 Keychain 에 보관했다가 Claude Code 항목에 그대로 옮깁니다. 토큰을 갱신하거나 서버로 보내지 않으며, 계정 이메일 확인을 위한 프로필 조회만 원문 1건당 최대 1회 합니다.</li>
                 <li>연결된 계정 이메일은 로컬에서 화면 표시용으로만 사용하며, 영속 저장하거나 외부로 전송하지 않습니다.</li>
                 <li>프롬프트·응답·코드·파일 내용·API 키·토큰·이메일은 서버 분석 이벤트나 랭킹 요청에 포함하지 않습니다.</li>
+                <li>알림은 기기 안에서 만드는 로컬 알림만 쓰고 푸시 서버(APNs)를 쓰지 않습니다. Pro 의 플로팅 사용량 창은 이미 화면에 있는 수치를 보여 줄 뿐 새 자료를 만들거나 전송하지 않습니다.</li>
               </ul>
             </section>
             <section class="policy-section">
               <h4>필수 통신</h4>
               <p>Firebase Remote Config는 최소 지원 버전과 App Store 업데이트 안내에만 사용하며, AI 사용량·이메일·토큰·프롬프트·응답·파일 내용은 요청에 포함하지 않습니다.</p>
               <p>이때 Firebase 설치 식별자와 IP 같은 기술 정보가 처리됩니다. 공개 랭킹을 열면 조회 기간, DeviceCheck 기반 App Check 토큰과 함수 호출 IP 가 앱 인증과 부정 사용 방지를 위해 처리됩니다. 관전만 할 때는 Firebase Auth 계정이나 랭킹 소유권 데이터를 만들지 않습니다.</p>
+              <p>새 모델 알림을 위해 Firebase Hosting 의 공개 모델 목록(정적 JSON 파일)을 내려받으며, 사용량·계정 정보는 요청에 포함하지 않습니다. 이때 IP 같은 기술 정보가 처리됩니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>iPhone 앱과 iCloud 동기화</h4>
+              <p>UsageMaster for iPhone 은 Mac 앱이 읽은 사용량을 보여 주는 동반 앱입니다. AI 서비스에 로그인하지 않고 API 키·토큰 같은 자격 증명도 다루지 않습니다.</p>
+              <p>Mac 앱은 사용량 수치(사용 퍼센트·재설정 시각·일별 토큰 수·지출·잔액·모델 ID), 시간대, 표시용 강조색, Pro·체험 상태, Mac 의 이름·앱 버전, 랭킹에 참여 중이면 닉네임·순위를 사용자 본인의 iCloud 키-값 저장소에 저장하고, 같은 Apple Account 의 iPhone 앱이 이를 읽어 표시합니다. 이 자료는 Apple iCloud 에 보관되어 운영자의 서버로 전송되지 않으며 운영자가 접근할 수 없습니다. 토큰·API 키·이메일·파일 경로·계정 ID·프롬프트는 올리지 않고, 값은 갱신될 때마다 덮어씁니다. iCloud 에서 로그아웃하면 동기화가 멈춥니다.</p>
+              <p>iPhone 앱은 이 자료를 읽고, 자신의 기기 이름·앱 버전·마지막 확인 시각·Pro·체험 상태만 다시 기록합니다. iPhone 앱에도 위의 익명 진단(Firebase Analytics·Crashlytics)이 적용되며, 임의 식별자는 iPhone 앱 Keychain 에 보관되어 재설치 후에도 남을 수 있습니다. App Store 구매·복원은 Apple 의 StoreKit 이 처리합니다.</p>
             </section>
             <section class="policy-section">
               <h4>익명 진단 (항상 수집)</h4>
@@ -388,6 +396,7 @@
               <h4>피드백</h4>
               <p>피드백은 앱에서 UsageMaster의 Firebase 서버로 바로 전송되어 저장됩니다. 메일 앱을 거치지 않습니다.</p>
               <p>저장되는 항목은 제목, 유형, 메시지, 앱 버전, macOS 버전, 앱 언어, 배포 채널(App Store·Direct), 익명 Firebase ID 뿐입니다. 이메일 주소, 계정, 사용량, 파일 경로, 토큰은 포함하지 않습니다.</p>
+              <p>오류 카드의 &#x27;개발자에게 로그 보내기&#x27;를 직접 누르면 오류 내용과 최근 앱 로그 줄이 버그 신고로 함께 저장됩니다. 이메일 주소와 홈 폴더 경로는 가려서 보냅니다.</p>
               <p>저장된 피드백의 삭제 요청은 지원 이메일 dlaudwls1203@gmail.com 으로 보내 주세요.</p>
             </section>
             <section class="policy-section">
@@ -424,25 +433,33 @@
             </section>
           </div>
           <div class="policy-lang" lang="en" data-lang="en" hidden>
-            <p class="policy-dates"><span>Effective August 29, 2026</span><span>Last updated September 24, 2026</span></p>
+            <p class="policy-dates"><span>Effective August 21, 2026</span><span>Last updated September 29, 2026</span></p>
             <p class="summary">AI provider credentials and original usage logs are never sent off the device. Anonymous diagnostics for improving the app (Firebase Analytics and Crashlytics) are always collected while the app is running, while ranking participation is off by default and related information is sent only if the user turns it on. Even without participating, viewing the public ranking connects to the server to verify app and device integrity.</p>
             <p class="summary">UsageMaster does not generate AI responses or content; it displays usage of connected AI tools locally.</p>
             <section class="policy-section">
               <h4>What is processed on-device</h4>
               <ul>
                 <li>For local-record providers (Claude, Codex, OpenCode Go, etc.), only the usage files and databases each tool has left on this Mac are read, without sending them externally.</li>
-                <li>Provider-owned authentication tokens are read only while checking usage. They are not copied to the app Keychain or sent to logs or Firebase.</li>
+                <li>Authentication tokens owned by a provider are read only while usage is being checked and are never sent to logs or Firebase. Only when Pro account switching is used is that token block kept in this app&#x27;s dedicated Keychain.</li>
                 <li>For providers that reuse CLI credentials (Gemini, Codex server lookup, etc.), the access token the tool has stored is used only once for an official usage API request and is discarded immediately afterward. The token is not renewed (refresh).</li>
                 <li>An API key or Cookie header the user pastes in is stored only in this app&#x27;s dedicated Keychain (this device only, no sync) and used only in that provider&#x27;s official usage API request header. It can be deleted at any time in Settings and never appears on screen, in logs, in diagnostics, or in the ranking.</li>
                 <li>Claude account switching in Pro stores the login token block in this app&#x27;s dedicated Keychain, then transfers it unchanged to the Claude Code entry. The token is not renewed or sent to a server; at most one profile lookup per original account is made, solely to confirm the account email.</li>
                 <li>Connected account emails are used locally for display only, and are never stored persistently or sent externally.</li>
                 <li>Prompts, responses, code, file contents, API keys, tokens, and emails are never included in server analytics events or ranking requests.</li>
+                <li>Notifications are local notifications created on the device only; no push server (APNs) is used. The Pro &quot;Floating usage&quot; window only shows figures that are already on screen and neither creates nor sends new data.</li>
               </ul>
             </section>
             <section class="policy-section">
               <h4>Essential communications</h4>
               <p>Firebase Remote Config is used only for the minimum supported version and App Store update notices. Requests do not include AI usage, email, tokens, prompts, responses, or file contents.</p>
               <p>In that case, technical information such as the Firebase installation identifier and IP address is processed. Opening the public ranking processes the query period, a DeviceCheck-based App Check token, and the function-call IP address for app authentication and abuse prevention. When only viewing, no Firebase Auth account or ranking ownership data is created.</p>
+              <p>For new-model alerts, a public model list (a static JSON file on Firebase Hosting) is downloaded; no usage or account information is included in the request. Technical information such as the IP address is processed in that case.</p>
+            </section>
+            <section class="policy-section">
+              <h4>iPhone app and iCloud sync</h4>
+              <p>UsageMaster for iPhone is a companion app that shows the usage the Mac app has read. It does not sign in to AI services and does not handle credentials such as API keys or tokens.</p>
+              <p>The Mac app saves usage figures (used percentage, reset times, daily token counts, spend, balance, model IDs), the time zone, display accent colors, Pro or trial status, the Mac&#x27;s name and app version and, if the user takes part in the ranking, the nickname and rank to the user&#x27;s own iCloud key-value storage, and the iPhone app signed in with the same Apple Account reads and displays them. This data is kept in Apple&#x27;s iCloud, is not sent to the operator&#x27;s servers, and cannot be accessed by the operator. Tokens, API keys, emails, file paths, account IDs, and prompts are never uploaded, and values are overwritten on each update. Syncing stops when the user signs out of iCloud.</p>
+              <p>The iPhone app reads this data and writes back only its own device name, app version, last-seen time, and Pro or trial status. The anonymous diagnostics above (Firebase Analytics and Crashlytics) apply to the iPhone app as well; its random identifier is kept in the iPhone app&#x27;s Keychain and may remain after reinstalling. App Store purchases and restores are handled by Apple&#x27;s StoreKit.</p>
             </section>
             <section class="policy-section">
               <h4>Anonymous diagnostics (always collected)</h4>
@@ -458,6 +475,7 @@
               <h4>Feedback</h4>
               <p>Feedback is sent directly from the app to UsageMaster&#x27;s Firebase backend and stored there. It never goes through a mail app.</p>
               <p>The only items stored are title, type, message, app version, macOS version, app language, distribution channel (App Store or Direct), and the anonymous Firebase ID. Email addresses, accounts, usage data, file paths, and tokens are not included.</p>
+              <p>If the user taps &quot;Send Log to Developer&quot; on an error card, the error text and the most recent app log lines are stored together as a bug report. Email addresses and the home folder path are masked before sending.</p>
               <p>To have stored feedback deleted, email the support address dlaudwls1203@gmail.com.</p>
             </section>
             <section class="policy-section">
