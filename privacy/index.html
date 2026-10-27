@@ -552,18 +552,178 @@
         </article>
 
         <article class="app-policy" id="fearindex">
-          <div class="app-top"><h3>공포지수</h3><span class="platform">iOS · macOS · Android</span></div>
-          <p class="summary">시장 지표 표시와 알림, 앱 안정성 분석 및 광고 제공에 필요한 정보만 처리합니다.</p>
-          <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span></div>
-          <details>
-            <summary>처리 항목과 삭제 방법</summary>
-            <dl class="fact-list">
-              <div><dt>기기 내</dt><dd>관심 설정, 위젯·알림 설정과 앱 표시 환경.</dd></div>
-              <div><dt>자동 처리</dt><dd>Firebase Analytics/Crashlytics의 앱 사용·충돌 진단, FCM의 푸시 토큰, AdMob의 광고 제공·측정·보안 정보.</dd></div>
-              <div><dt>광고 동의</dt><dd>EEA·영국·스위스 등 필요한 지역에서는 Google UMP가 동의 상태를 처리하고 선택에 맞는 광고 요청을 적용합니다.</dd></div>
-              <div><dt>보관·삭제</dt><dd>로컬 설정은 앱 삭제로 제거됩니다. 푸시 토큰은 알림 해제·앱 삭제 및 토큰 갱신 과정에서 폐기되며, 별도 요청은 이메일로 받습니다.</dd></div>
-            </dl>
-          </details>
+          <div class="app-top"><h3>공포지수</h3><span class="platform">iOS · macOS · watchOS · Android</span></div>
+          <div class="lang-toggle" role="group" aria-label="Language"><button type="button" data-set-lang="ko" aria-pressed="true">한국어</button><span aria-hidden="true">|</span><button type="button" data-set-lang="en" aria-pressed="false">English</button></div>
+          <div class="policy-lang" lang="ko" data-lang="ko">
+            <p class="policy-dates"><span>시행일 2026. 10. 29.</span><span>2.0.0 반영 개정 · 이전 판 2026. 8. 21.</span></p>
+            <p class="summary">시장 지표를 보여 주고, 사용자가 고른 알림을 보내고, 광고와 앱 안 결제를 운영하고, 분석·충돌 진단으로 앱을 고치는 데 필요한 정보만 처리합니다. 회원 가입이 없고 이름·이메일·전화번호나 증권 계좌·보유 종목을 받지 않습니다.</p>
+            <p class="summary">서버에 저장하는 자료는 이름이 아니라 앱이 만든 무작위 기기 ID로 구분합니다. 광고와 분석은 Google AdMob·Firebase 등 아래에 적은 회사가 처리하며, iOS 앱은 추적 허용(ATT)을 요청하지 않습니다.</p>
+            <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span><span>Pangle</span><span>Unity Ads</span><span>App Store · Google Play 결제</span></div>
+            <section class="policy-section">
+              <h4>기기 안에서 처리하는 것</h4>
+              <ul>
+                <li>보는 시장(미국·코스피·암호화폐), 알림 임계값, 위젯·Apple Watch 설정, 화면 환경, 구매 권한 상태, 알림 내역은 기기 안에 저장합니다.</li>
+                <li>Apple 기기에서는 같은 Apple 계정의 iPhone·iPad·Mac 사이에 알림 설정(켜기·임계값)만 사용자 본인의 iCloud 키-값 저장소로 동기화합니다. 이 자료는 Apple iCloud에 보관되어 운영자가 볼 수 없습니다. Apple Watch와 위젯은 iPhone 앱과 기기 안에서 자료를 주고받습니다.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>필수 통신</h4>
+              <ul>
+                <li>공포지수·가격·환율 같은 시장 자료는 운영자 서버와 공개 자료 제공처(CNN, alternative.me, Yahoo Finance, CoinGecko 등)에서 받아 옵니다. 이 요청에는 기기 ID나 설정을 넣지 않으며, 각 서버에는 IP 주소 같은 기술 정보만 전달됩니다.</li>
+                <li>앱 기능 설정(Firebase Remote Config)과 서버 요청이 진짜 앱에서 왔는지 확인하는 일(Firebase App Check: iOS·macOS는 Apple App Attest·DeviceCheck, Android는 Play Integrity)에는 Firebase 설치 ID, 앱·기기 무결성 토큰, IP 주소 같은 기술 정보가 처리됩니다.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>알림과 무작위 기기 ID</h4>
+              <p>알림을 보내기 위해 앱이 만든 무작위 기기 ID(UUID), Firebase Cloud Messaging(FCM) 토큰, 알림 켜기·끄기, 시장별 알림 임계값, 주간 리포트·일일 아침 요약 알림 선택, 앱 언어, 플랫폼, 앱 버전·빌드 번호를 운영자의 Firebase 서버(Cloud Firestore)에 저장합니다. 알림을 보낸 뒤에는 마지막 알림의 시각·조건·점수를 같은 기록에 남깁니다.</p>
+              <p>기기 ID는 광고 ID·기기 일련번호·전화번호와 관계없는 임의 값이며 기기 안에 저장됩니다. 이 정보는 사용자가 켠 지수 알림, 주간 리포트·일일 요약 알림, 알림을 켠 사용자에게 설치 후 첫 일주일 동안 보내는 안내 알림에만 씁니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>투표와 언어 요청</h4>
+              <p>‘지금 물렸나요?’ 투표에 응답하면 무작위 기기 ID, 지수 종류, 고른 답(물렸어요·안 물렸어요)을 저장해 전체 집계를 보여 주고 중복 응답을 막습니다. 다른 사용자에게는 집계 수치만 보입니다.</p>
+              <p>앱에 없는 언어를 요청하면 고른 언어, 앱 언어, 기기의 선호 언어(최대 5개), 플랫폼, 앱 버전, 무작위 기기 ID를 저장해 다음에 지원할 언어를 정하는 데 씁니다. 요청은 기기당 한 번만 저장됩니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>AI 요약</h4>
+              <p>일일 아침 요약과 주간 리포트의 뉴스 브리핑은 운영자가 공식 통계·발표와 언론 보도 같은 공개 자료를 Anthropic의 Claude로 미리 요약해 서버에 올린 글입니다. 앱은 요약을 받을 때 날짜(또는 주)와 언어만 보내며, 기기 ID·알림 설정·투표·구매 정보 같은 사용자 정보는 AI 요약에 쓰거나 AI 제공자에게 보내지 않습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>앱 안 결제와 구매 기록 분석</h4>
+              <p>1회 구매(광고 제거), 프리미엄 구독(월·연), 평생 이용권의 결제·환불·구독 관리는 Apple App Store(StoreKit)와 Google Play 결제가 처리합니다. 운영자는 이름·이메일·결제 수단이나 Apple·Google 계정 정보를 받지 않으며, 스토어가 확인한 구매 정보로 기기 안에서 혜택을 적용합니다.</p>
+              <p>판매 성과를 알기 위해 구매를 시작·완료·취소·실패·보류한 사실, 상품 ID, 요금제 화면을 연 위치, 결제 금액·통화, 결제 전·후 이용 등급(무료·1회 구매·월·연·평생)과 업그레이드 종류를 Firebase Analytics로 보내고, 현재 이용 등급을 사용자 속성으로 기록합니다. 완료된 결제는 Google Analytics의 구매(매출) 이벤트로도 기록됩니다. 이 기록은 아래 분석 식별자와 연결되지만 이름·결제 수단은 포함하지 않습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>광고</h4>
+              <p>무료로 쓰는 동안 배너 광고, 화면 사이의 전면 광고, 앱을 다시 열 때의 앱 오프닝 광고가 나옵니다. 보상형 광고는 일일 요약·주간 리포트·코스피 지수처럼 잠긴 내용을 열려고 사용자가 직접 고를 때만 나옵니다. 1회 구매·프리미엄 이용 중에는 배너·전면·앱 오프닝 광고를 요청하지 않으며, macOS 앱에는 광고가 없습니다.</p>
+              <p>광고는 Google AdMob이 요청하고, AdMob 미디에이션을 통해 Pangle(Bytedance Pte. Ltd.)과 Unity Ads(Unity Technologies)도 광고 입찰·표시에 참여합니다. 광고를 보여 주고 측정하고 부정 클릭을 막기 위해 각 광고 SDK가 IP 주소(대략적인 위치 추정), 기기·앱 정보(모델·OS·언어·네트워크), 기기 식별자, 광고 노출·클릭 같은 상호작용, 성능·충돌 진단 정보를 각 회사로 보냅니다.</p>
+              <p>iOS 앱은 추적 허용(ATT)을 요청하지 않으므로 광고 식별자(IDFA)를 받지 않습니다. Android에서는 Google 광고 ID가 쓰일 수 있으며, 기기 설정에서 재설정하거나 삭제할 수 있습니다. 운영자는 기기 ID·알림 설정·투표·구매 정보 같은 앱의 자료를 광고 SDK에 넘기지 않습니다.</p>
+              <p>유럽 경제 지역·영국·스위스처럼 동의가 필요한 지역에서는 광고를 요청하기 전에 Google의 동의 화면(UMP)으로 선택을 받고, 그 선택에 맞게 광고를 요청합니다. 설정의 ‘개인정보 선택’에서 언제든 바꿀 수 있습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>분석과 충돌 진단</h4>
+              <p>앱을 개선하기 위해 Firebase Analytics(Google Analytics 4)로 화면 보기, 기능 사용(알림 설정 변경, 투표, 차트·위젯·리포트 사용, 요약이 도움이 됐는지 응답 등), 광고 표시·실패, 위의 구매 흐름 같은 사용 이벤트와 앱 버전·OS 버전·국가(기기 지역 설정)·플랫폼·이용 등급 같은 속성을 보냅니다. Firebase가 만든 앱 인스턴스 식별자가 붙으며, 운영자는 사용자 ID를 따로 설정하지 않습니다.</p>
+              <p>Firebase Crashlytics로 앱이 비정상 종료될 때의 충돌 보고(스택 정보·기기 모델·OS·앱 버전)와 앱이 기록한 오류 로그를 보냅니다. 충돌 진단은 앱 안정성을 위해 정식 빌드에서 항상 켜져 있습니다.</p>
+              <p>macOS 앱은 사용 이벤트를 따로 기록하지 않으며, Firebase가 자동으로 모으는 기본 사용 정보(첫 실행·세션 등)만 처리될 수 있습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>처리위탁과 국외 이전</h4>
+              <ul>
+                <li>Google LLC: Firebase(Cloud Firestore·Cloud Functions·Cloud Messaging·Analytics·Crashlytics·Remote Config·App Check)와 Google AdMob·UMP. 알림 설정·투표·언어 요청은 서울 리전(asia-northeast3)의 Firestore·Cloud Functions에 저장·처리되고, 분석·충돌·푸시·원격 설정·앱 무결성 확인과 광고 자료는 미국을 포함해 Google이 시설을 운영하는 국가에서 처리될 수 있습니다.</li>
+                <li>Bytedance Pte. Ltd.(싱가포르, Pangle)와 Unity Technologies(미국, Unity Ads): 광고를 요청할 때 위 광고 항목이 각 회사 서버로 전송되며, 각 회사가 자체 방침에 따라 처리합니다.</li>
+                <li>Apple: App Store 결제·복원, 푸시 알림 전달(APNs), iCloud 키-값 동기화, App Attest·DeviceCheck 앱 무결성 확인. Google Play: Android 결제·구독 관리와 Play Integrity 앱 무결성 확인.</li>
+                <li>시점·방법: 앱을 실행하거나 해당 기능을 쓸 때 암호화된 통신(HTTPS)으로 전송합니다.</li>
+                <li>각 회사의 방침: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google의 파트너 앱 정보 사용</a> · <a href="https://www.pangleglobal.com/privacy/enduser-en" target="_blank" rel="noopener noreferrer">Pangle</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener noreferrer">Unity</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple</a></li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>보유기간</h4>
+              <p>알림용 기기 기록(기기 ID·FCM 토큰·알림 설정·발송 기록), 투표 응답, 언어 요청은 운영자가 지울 때까지 보관합니다. 앱을 삭제해 FCM 토큰이 무효가 되면 서버가 토큰을 지우고 알림을 끈 상태로 바꾸지만 기록 자체는 남습니다.</p>
+              <p>Crashlytics 충돌 자료와 관련 식별자는 90일, Analytics 사용자·이벤트 수준 자료는 Google Analytics 설정에 따라 최대 14개월 보관됩니다. Firebase 설치 ID는 운영자가 삭제를 요청하면 180일 안에 지워지고, App Check 토큰은 유효기간(최대 7일)이 지나면 보관하지 않습니다. 남용을 막기 위한 요청 횟수 제한에는 IP 주소 원문이 아닌 해시값만 씁니다. 광고 SDK가 처리한 자료는 각 회사의 방침에 따릅니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>앱을 삭제하면</h4>
+              <p>앱을 삭제하면 기기에 저장된 설정·캐시·무작위 기기 ID가 지워집니다. 다만 기기 백업(iCloud 백업, Android 자동 백업)에서 앱 데이터를 복원하면 같은 기기 ID가 돌아와 서버의 예전 기록과 다시 이어질 수 있습니다. 서버의 알림 기록·투표·언어 요청과 이미 전송된 분석·충돌 자료는 자동으로 지워지지 않으니, 삭제를 원하면 아래 이메일로 요청해 주세요. iCloud에 동기화된 알림 설정은 사용자의 iCloud에 남을 수 있으며 운영자는 접근할 수 없습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>이용자 권리와 선택</h4>
+              <p>알림은 앱 설정이나 기기 설정에서 끌 수 있고, 투표와 언어 요청은 사용자가 직접 보낼 때만 저장됩니다. 동의가 필요한 지역에서는 설정의 ‘개인정보 선택’에서 광고 동의를 언제든 바꿀 수 있고, Android 광고 ID는 기기 설정의 광고 메뉴에서 재설정하거나 삭제할 수 있습니다. 분석·충돌 진단은 앱 안에서 끄는 설정이 없으며, 앱을 삭제하면 수집이 멈춥니다.</p>
+              <p>본인 데이터의 열람·정정·삭제·처리 정지를 아래 이메일로 요청할 수 있습니다. 서버 자료는 이름이 아닌 무작위 기기 ID로만 구분되므로, 본인 기록을 찾는 데 필요한 최소 정보만 추가로 요청하고 처리 후 지체 없이 삭제합니다. 법령상 보관 의무나 보안·부정 사용 방지에 필요한 자료가 있으면 항목과 기간을 안내합니다.</p>
+              <p>이 앱은 아동을 대상으로 하지 않으며, 만 14세 미만 아동의 개인정보를 알면서 수집하지 않습니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>방침 변경</h4>
+              <p>앱 기능, SDK 또는 법적 요구사항이 바뀌면 이 문서를 갱신합니다. 중요한 변경은 시행 전에 앱 또는 웹 페이지에서 알리고, 추가 동의가 필요한 처리는 동의를 받은 뒤 시작합니다.</p>
+            </section>
+            <section class="policy-section">
+              <h4>문의</h4>
+              <p>운영자 이매진(대표 이명진, 사업자등록번호 126-35-01870) · 개인정보 보호책임자 이명진 · <a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a></p>
+            </section>
+          </div>
+          <div class="policy-lang" lang="en" data-lang="en" hidden>
+            <p class="policy-dates"><span>Effective October 29, 2026</span><span>Revised for version 2.0.0 · previous version August 21, 2026</span></p>
+            <p class="summary">Fear Index processes only what it needs to show market indicators, send the alerts you choose, run ads and in-app purchases, and fix the app through analytics and crash diagnostics. There is no sign-up, and the app never asks for your name, email, phone number, brokerage account, or holdings.</p>
+            <p class="summary">Data stored on our server is identified by a random device ID the app creates, not by your name. Ads and analytics are handled by the companies listed below, such as Google AdMob and Firebase, and the iOS app does not ask for tracking permission (ATT).</p>
+            <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span><span>Pangle</span><span>Unity Ads</span><span>App Store · Google Play billing</span></div>
+            <section class="policy-section">
+              <h4>What is processed on your device</h4>
+              <ul>
+                <li>The markets you follow (US, KOSPI, crypto), alert thresholds, widget and Apple Watch settings, display preferences, purchase entitlement status, and notification history are stored on your device.</li>
+                <li>On Apple devices, only alert settings (on/off and thresholds) sync between your iPhone, iPad, and Mac signed in to the same Apple Account, through your own iCloud key-value storage. This data stays in Apple iCloud and the operator cannot see it. Apple Watch and widgets exchange data with the iPhone app on your devices.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>Essential communications</h4>
+              <ul>
+                <li>Market data such as fear and greed scores, prices, and exchange rates comes from the operator’s server and public data providers (CNN, alternative.me, Yahoo Finance, CoinGecko, and others). These requests carry no device ID or settings; each server receives only technical information such as your IP address.</li>
+                <li>For app configuration (Firebase Remote Config) and to verify that server requests come from the genuine app (Firebase App Check: Apple App Attest and DeviceCheck on iOS and macOS, Play Integrity on Android), technical information such as the Firebase installation ID, app and device integrity tokens, and your IP address is processed.</li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>Alerts and the random device ID</h4>
+              <p>To deliver alerts, the operator’s Firebase server (Cloud Firestore) stores a random device ID (UUID) created by the app, your Firebase Cloud Messaging (FCM) token, alert on/off state, per-market alert thresholds, your weekly report and daily morning summary alert choices, app language, platform, and app version and build number. After an alert is sent, the time, condition, and score of the last alert are added to the same record.</p>
+              <p>The device ID is a random value unrelated to advertising IDs, serial numbers, or phone numbers, and it is stored on your device. This information is used only for the index alerts you turn on, weekly report and daily summary alerts, and tips sent during the first week after installation to users who have alerts on.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Votes and language requests</h4>
+              <p>When you answer the “Are you stuck?” vote, the random device ID, the index, and your answer (stuck or not stuck) are stored to show the overall tally and prevent duplicate answers. Other users see only aggregate counts.</p>
+              <p>When you request a language the app does not support yet, the requested language, app language, your device’s preferred languages (up to five), platform, app version, and random device ID are stored to decide which languages to add next. Only one request per device is stored.</p>
+            </section>
+            <section class="policy-section">
+              <h4>AI summaries</h4>
+              <p>The daily morning summary and the news briefing in the weekly report are written in advance by the operator, who uses Anthropic’s Claude to summarize public sources such as official statistics, announcements, and news reports, and then publishes them to the server. When loading a summary, the app sends only the date (or week) and language. Information about you, such as your device ID, alert settings, votes, or purchases, is never used for AI summaries or sent to the AI provider.</p>
+            </section>
+            <section class="policy-section">
+              <h4>In-app purchases and purchase analytics</h4>
+              <p>Payments, refunds, and subscription management for the one-time purchase (ad removal), Premium subscriptions (monthly and yearly), and lifetime access are handled by the Apple App Store (StoreKit) and Google Play billing. The operator never receives your name, email, payment method, or Apple or Google account details; benefits are applied on your device using purchase information verified by the store.</p>
+              <p>To measure sales, the app sends Firebase Analytics the fact that a purchase was started, completed, cancelled, failed, or left pending, together with the product ID, where the plans screen was opened, the amount and currency paid, your plan before and after (free, one-time, monthly, yearly, lifetime), and the upgrade type, and it records your current plan as a user property. Completed payments are also recorded as Google Analytics purchase (revenue) events. These records are linked to the analytics identifier described below but never include your name or payment method.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Ads</h4>
+              <p>While you use the app for free, it shows banner ads, interstitial ads between screens, and app-open ads when you return to the app. Rewarded ads appear only when you choose to watch one to unlock locked content such as the daily summary, the weekly report, or the KOSPI index. With the one-time purchase or Premium, banner, interstitial, and app-open ads are not requested, and the macOS app has no ads.</p>
+              <p>Ads are requested through Google AdMob, and through AdMob mediation Pangle (Bytedance Pte. Ltd.) and Unity Ads (Unity Technologies) also bid on and serve ads. To show and measure ads and to prevent invalid clicks, each ad SDK sends its company your IP address (used to estimate approximate location), device and app information (model, OS, language, network), device identifiers, ad interactions such as impressions and clicks, and performance and crash diagnostics.</p>
+              <p>The iOS app does not ask for tracking permission (ATT), so it does not receive the advertising identifier (IDFA). On Android, the Google advertising ID may be used, and you can reset or delete it in your device settings. The operator does not pass app data, such as your device ID, alert settings, votes, or purchases, to ad SDKs.</p>
+              <p>In regions that require consent, such as the European Economic Area, the UK, and Switzerland, the app asks for your choices on Google’s consent screen (UMP) before requesting ads and requests ads accordingly. You can change your choices at any time under Privacy choices in Settings.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Analytics and crash diagnostics</h4>
+              <p>To improve the app, Firebase Analytics (Google Analytics 4) receives usage events, such as screen views, feature use (changing alert settings, voting, using charts, widgets, and reports, rating whether a summary helped, and so on), ad display and failures, and the purchase flow above, plus properties such as app version, OS version, country (from your device region setting), platform, and plan. A Firebase-generated app instance identifier is attached; the operator does not set a user ID.</p>
+              <p>Firebase Crashlytics receives crash reports (stack trace, device model, OS, app version) when the app quits unexpectedly, as well as error logs recorded by the app. Crash diagnostics are always on in release builds to keep the app stable.</p>
+              <p>The macOS app does not log usage events; only the basic usage information that Firebase collects automatically (such as first launch and sessions) may be processed.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Processors and international transfers</h4>
+              <ul>
+                <li>Google LLC: Firebase (Cloud Firestore, Cloud Functions, Cloud Messaging, Analytics, Crashlytics, Remote Config, App Check) and Google AdMob and UMP. Alert settings, votes, and language requests are stored and processed by Firestore and Cloud Functions in the Seoul region (asia-northeast3); analytics, crash, push, remote configuration, app integrity, and ad data may be processed in countries where Google operates facilities, including the United States.</li>
+                <li>Bytedance Pte. Ltd. (Singapore; Pangle) and Unity Technologies (United States; Unity Ads): when ads are requested, the ad data described above is sent to each company’s servers and handled under its own policy.</li>
+                <li>Apple: App Store payments and restores, push delivery (APNs), iCloud key-value sync, and App Attest and DeviceCheck app integrity checks. Google Play: Android payments, subscription management, and Play Integrity app integrity checks.</li>
+                <li>When and how: data is sent over encrypted connections (HTTPS) when you launch the app or use the relevant feature.</li>
+                <li>Each company’s policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from partner apps</a> · <a href="https://www.pangleglobal.com/privacy/enduser-en" target="_blank" rel="noopener noreferrer">Pangle</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener noreferrer">Unity</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple</a></li>
+              </ul>
+            </section>
+            <section class="policy-section">
+              <h4>Retention period</h4>
+              <p>Alert records (device ID, FCM token, alert settings, delivery history), vote answers, and language requests are kept until the operator deletes them. If you delete the app and its FCM token becomes invalid, the server clears the token and marks alerts as off, but the record itself remains.</p>
+              <p>Crashlytics crash data and associated identifiers are kept for 90 days, and Analytics user- and event-level data for up to 14 months depending on the Google Analytics setting. Firebase installation IDs are removed within 180 days after the operator requests deletion, and App Check tokens are not retained after they expire (at most 7 days). Request rate limiting against abuse uses only a hash of your IP address, never the address itself. Data processed by ad SDKs follows each company’s policy.</p>
+            </section>
+            <section class="policy-section">
+              <h4>If you delete the app</h4>
+              <p>Deleting the app removes the settings, cache, and random device ID stored on your device. If app data is restored from a device backup (iCloud backup or Android Auto Backup), the same device ID may come back and reconnect to your earlier server records. Alert records, votes, and language requests on the server, and analytics and crash data already sent, are not deleted automatically; email us if you want them deleted. Alert settings synced to iCloud may remain in your iCloud, which the operator cannot access.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Your rights and choices</h4>
+              <p>You can turn alerts off in the app or in your device settings, and votes and language requests are stored only when you send them. Where consent is required, you can change your ad choices at any time under Privacy choices in Settings, and on Android you can reset or delete the advertising ID in your device’s ad settings. There is no in-app setting to turn off analytics or crash diagnostics; uninstalling the app stops collection.</p>
+              <p>You can request access to, correction, deletion, or suspension of processing of your data by email. Server data is identified only by a random device ID, not by name, so we ask only for the minimum information needed to find your records and delete it promptly after handling the request. If any data must be kept by law or for security and abuse prevention, we will tell you what and for how long.</p>
+              <p>This app is not directed to children, and we do not knowingly collect personal information from children under 14.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Policy changes</h4>
+              <p>We update this notice when app features, SDKs, or legal requirements change. Significant changes are announced in the app or on this page before they take effect, and processing that needs additional consent starts only after consent is obtained.</p>
+            </section>
+            <section class="policy-section">
+              <h4>Contact</h4>
+              <p>Operator: ImaJine (이매진; owner Myeongjin Lee, business registration no. 126-35-01870, Republic of Korea) · Privacy officer: Myeongjin Lee · <a href="mailto:dlaudwls1203@gmail.com">dlaudwls1203@gmail.com</a></p>
+            </section>
+          </div>
         </article>
 
         <article class="app-policy" id="pumpwater">
