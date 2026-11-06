@@ -559,7 +559,7 @@
             <p class="policy-dates"><span>시행일 2026. 11. __.</span><span>의견 보내기 반영 개정 · 이전 판 2026. 10. 29.</span></p>
             <p class="summary">시장 지표를 보여 주고, 사용자가 고른 알림을 보내고, 광고와 앱 안 결제를 운영하고, 결제 사용자가 보낸 의견을 받고, 분석·충돌 진단으로 앱을 고치는 데 필요한 정보만 처리합니다. 회원 가입이 없고 이름·이메일·전화번호나 증권 계좌·보유 종목을 받지 않습니다. 다만 결제 사용자가 개발자에게 보내는 의견에는 직접 적은 내용이 그대로 담깁니다.</p>
             <p class="summary">서버에 저장하는 자료는 이름이 아니라 앱이 만든 무작위 기기 ID로 구분합니다. 광고와 분석은 Google AdMob·Firebase 등 아래에 적은 회사가 처리하며, iOS 앱은 추적 허용(ATT)을 요청하지 않습니다.</p>
-            <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span><span>Pangle</span><span>Unity Ads</span><span>App Store · Google Play 결제</span><span>Telegram</span></div>
+            <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span><span>Pangle</span><span>Unity Ads</span><span>App Store · Google Play 결제</span></div>
             <section class="policy-section">
               <h4>기기 안에서 처리하는 것</h4>
               <ul>
@@ -587,7 +587,7 @@
             <section class="policy-section">
               <h4>개발자에게 의견 보내기</h4>
               <p>1회 구매·프리미엄 구독·평생 이용권 등 유료 혜택이 있는 사용자는 iPhone·iPad·Android 앱의 설정에서 개발자에게 의견을 보낼 수 있습니다. 보내기를 누르면 직접 적은 글(최대 1,000자)과 앱 버전, 기기 모델, OS 버전, 앱 언어, 요금제(1회 구매·프리미엄·평생), 플랫폼, 무작위 기기 ID를 운영자의 Firebase 서버(Cloud Firestore)에 저장하고, 개발자가 의견을 읽고 앱을 고치는 데 씁니다. 보내기를 누르지 않으면 아무것도 저장하지 않습니다.</p>
-              <p>개발자가 바로 읽을 수 있도록 같은 글과 위 항목 가운데 기기 ID를 뺀 나머지, 저장된 의견을 찾는 참조 번호를 운영자의 텔레그램(Telegram)으로도 보냅니다(아래 ‘처리위탁과 국외 이전’). 남용을 막기 위해 기기 ID별로 24시간 동안 보낸 횟수를 세어 5번까지만 받습니다. 앱 안에서는 답장을 보내지 않으니 답장이 필요하면 아래 이메일로 문의해 주세요. 적은 글은 그대로 저장되니 이름·연락처 같은 개인정보는 적지 말아 주세요.</p>
+              <p>남용을 막기 위해 기기 ID별로 24시간 동안 보낸 횟수를 세어 5번까지만 받습니다. 앱 안에서는 답장을 보내지 않으니 답장이 필요하면 아래 이메일로 문의해 주세요. 적은 글은 그대로 저장되니 이름·연락처 같은 개인정보는 적지 말아 주세요.</p>
             </section>
             <section class="policy-section">
               <h4>AI 요약</h4>
@@ -616,16 +616,15 @@
               <ul>
                 <li>Google LLC: Firebase(Cloud Firestore·Cloud Functions·Cloud Messaging·Analytics·Crashlytics·Remote Config·App Check)와 Google AdMob·UMP. 알림 설정·투표·언어 요청·개발자에게 보낸 의견은 서울 리전(asia-northeast3)의 Firestore·Cloud Functions에 저장·처리되고, 분석·충돌·푸시·원격 설정·앱 무결성 확인과 광고 자료는 미국을 포함해 Google이 시설을 운영하는 국가에서 처리될 수 있습니다.</li>
                 <li>Bytedance Pte. Ltd.(싱가포르, Pangle)와 Unity Technologies(미국, Unity Ads): 광고를 요청할 때 위 광고 항목이 각 회사 서버로 전송되며, 각 회사가 자체 방침에 따라 처리합니다.</li>
-                <li>Telegram Messenger Inc.(아랍에미리트, Telegram): 앱에서 개발자에게 의견을 보낼 때마다 운영자 서버가 그 글과 요금제·플랫폼·앱 버전·기기 모델·OS 버전·앱 언어, 저장된 의견의 참조 번호를 Telegram Bot API를 통해 암호화된 통신(HTTPS)으로 운영자와 운영자의 봇만 있는 1:1 대화방에 보내, 개발자가 바로 읽고 대응할 수 있게 합니다. 기기 ID는 보내지 않습니다. 이 자료는 텔레그램 서버에 보관되며, 텔레그램은 대화 자료를 여러 나라의 데이터센터에 나눠 보관한다고 밝히고 있습니다(국가별 위치는 밝히지 않습니다). 대화방의 자동 삭제를 1년으로 설정해 보낸 때부터 1년 안에 지워지게 합니다. 이전을 원하지 않으면 앱 대신 이메일로 의견을 보내 주세요. 앱의 다른 기능은 그대로 쓸 수 있습니다.</li>
                 <li>Apple: App Store 결제·복원, 푸시 알림 전달(APNs), iCloud 키-값 동기화, App Attest·DeviceCheck 앱 무결성 확인. Google Play: Android 결제·구독 관리와 Play Integrity 앱 무결성 확인.</li>
                 <li>시점·방법: 앱을 실행하거나 해당 기능을 쓸 때 암호화된 통신(HTTPS)으로 전송합니다.</li>
-                <li>각 회사의 방침: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google의 파트너 앱 정보 사용</a> · <a href="https://www.pangleglobal.com/privacy/enduser-en" target="_blank" rel="noopener noreferrer">Pangle</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener noreferrer">Unity</a> · <a href="https://telegram.org/privacy" target="_blank" rel="noopener noreferrer">Telegram</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple</a></li>
+                <li>각 회사의 방침: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google의 파트너 앱 정보 사용</a> · <a href="https://www.pangleglobal.com/privacy/enduser-en" target="_blank" rel="noopener noreferrer">Pangle</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener noreferrer">Unity</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple</a></li>
               </ul>
             </section>
             <section class="policy-section">
               <h4>보유기간</h4>
               <p>알림용 기기 기록(기기 ID·FCM 토큰·알림 설정·발송 기록), 투표 응답, 언어 요청은 운영자가 지울 때까지 보관합니다. 앱을 삭제해 FCM 토큰이 무효가 되면 서버가 토큰을 지우고 알림을 끈 상태로 바꾸지만 기록 자체는 남습니다.</p>
-              <p>개발자에게 보낸 의견은 보낸 때부터 1년이 지나면 자동으로 삭제되고, 하루 보내기 횟수를 세는 기록(기기 ID·횟수·세기 시작한 시각)은 세기 시작한 때부터 24시간이 지나면 자동으로 삭제됩니다. 자동 삭제는 기한이 지난 뒤 보통 하루 안에 처리됩니다. 텔레그램으로 보낸 사본은 대화방의 자동 삭제(1년)로 보낸 때부터 1년 안에 지워집니다.</p>
+              <p>개발자에게 보낸 의견은 보낸 때부터 1년이 지나면 자동으로 삭제되고, 하루 보내기 횟수를 세는 기록(기기 ID·횟수·세기 시작한 시각)은 세기 시작한 때부터 24시간이 지나면 자동으로 삭제됩니다. 자동 삭제는 기한이 지난 뒤 보통 하루 안에 처리됩니다.</p>
               <p>Crashlytics 충돌 자료와 관련 식별자는 90일, Analytics 사용자·이벤트 수준 자료는 Google Analytics 설정에 따라 최대 14개월 보관됩니다. Firebase 설치 ID는 운영자가 삭제를 요청하면 180일 안에 지워지고, App Check 토큰은 유효기간(최대 7일)이 지나면 보관하지 않습니다. 남용을 막기 위한 그 밖의 요청 횟수 제한에는 IP 주소 원문이 아닌 해시값만 씁니다. 광고 SDK가 처리한 자료는 각 회사의 방침에 따릅니다.</p>
             </section>
             <section class="policy-section">
@@ -635,7 +634,7 @@
             <section class="policy-section">
               <h4>이용자 권리와 선택</h4>
               <p>알림은 앱 설정이나 기기 설정에서 끌 수 있고, 투표·언어 요청·개발자에게 보내는 의견은 사용자가 직접 보낼 때만 저장됩니다. 동의가 필요한 지역에서는 설정의 ‘개인정보 선택’에서 광고 동의를 언제든 바꿀 수 있고, Android 광고 ID는 기기 설정의 광고 메뉴에서 재설정하거나 삭제할 수 있습니다. 분석·충돌 진단은 앱 안에서 끄는 설정이 없으며, 앱을 삭제하면 수집이 멈춥니다.</p>
-              <p>본인 데이터의 열람·정정·삭제·처리 정지를 아래 이메일로 요청할 수 있습니다. 서버 자료는 이름이 아닌 무작위 기기 ID로만 구분되므로, 요청할 때 앱 설정(iPhone·iPad·Android는 설정 탭의 앱 정보, Mac은 설정 &gt; 정보)에 보이는 기기 ID를 함께 보내 주세요. 보낸 의견의 삭제를 요청하면 텔레그램으로 보낸 사본도 함께 지웁니다. 그 밖에는 본인 기록을 찾는 데 필요한 최소 정보만 추가로 요청하고, 처리 후 지체 없이 삭제합니다. 법령상 보관 의무나 보안·부정 사용 방지에 필요한 자료가 있으면 항목과 기간을 안내합니다.</p>
+              <p>본인 데이터의 열람·정정·삭제·처리 정지를 아래 이메일로 요청할 수 있습니다. 서버 자료는 이름이 아닌 무작위 기기 ID로만 구분되므로, 요청할 때 앱 설정(iPhone·iPad·Android는 설정 탭의 앱 정보, Mac은 설정 &gt; 정보)에 보이는 기기 ID를 함께 보내 주세요. 그 밖에는 본인 기록을 찾는 데 필요한 최소 정보만 추가로 요청하고, 처리 후 지체 없이 삭제합니다. 법령상 보관 의무나 보안·부정 사용 방지에 필요한 자료가 있으면 항목과 기간을 안내합니다.</p>
               <p>이 앱은 아동을 대상으로 하지 않으며, 만 14세 미만 아동의 개인정보를 알면서 수집하지 않습니다.</p>
             </section>
             <section class="policy-section">
@@ -652,7 +651,7 @@
             <p class="policy-dates"><span>Effective November __, 2026</span><span>Revised for in-app feedback · previous version October 29, 2026</span></p>
             <p class="summary">Fear Index processes only what it needs to show market indicators, send the alerts you choose, run ads and in-app purchases, receive feedback from paying users, and fix the app through analytics and crash diagnostics. There is no sign-up, and the app never asks for your name, email, phone number, brokerage account, or holdings. Feedback that paying users send to the developer, however, contains whatever they write in it.</p>
             <p class="summary">Data stored on our server is identified by a random device ID the app creates, not by your name. Ads and analytics are handled by the companies listed below, such as Google AdMob and Firebase, and the iOS app does not ask for tracking permission (ATT).</p>
-            <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span><span>Pangle</span><span>Unity Ads</span><span>App Store · Google Play billing</span><span>Telegram</span></div>
+            <div class="service-tags"><span>Firebase</span><span>FCM</span><span>AdMob</span><span>UMP</span><span>Pangle</span><span>Unity Ads</span><span>App Store · Google Play billing</span></div>
             <section class="policy-section">
               <h4>What is processed on your device</h4>
               <ul>
@@ -680,7 +679,7 @@
             <section class="policy-section">
               <h4>Feedback to the developer</h4>
               <p>Users with paid benefits, such as the one-time purchase, a Premium subscription, or lifetime access, can send feedback to the developer from Settings in the iPhone, iPad, and Android apps. When you tap Send, the operator’s Firebase server (Cloud Firestore) stores the message you wrote (up to 1,000 characters) together with your app version, device model, OS version, app language, plan (one-time, Premium, or lifetime), platform, and random device ID, and the developer uses it to read your feedback and improve the app. Nothing is stored unless you tap Send.</p>
-              <p>So the developer can read it right away, the same message and the details above except the device ID, plus a reference number for finding the stored feedback, are also sent to the operator’s Telegram (see Processors and international transfers below). To prevent abuse, messages are counted per device ID over 24 hours, and up to five are accepted. There is no way to reply inside the app, so if you would like a reply, please email us at the address below. Your message is stored exactly as written, so please do not include personal details such as your name or contact information.</p>
+              <p>To prevent abuse, messages are counted per device ID over 24 hours, and up to five are accepted. There is no way to reply inside the app, so if you would like a reply, please email us at the address below. Your message is stored exactly as written, so please do not include personal details such as your name or contact information.</p>
             </section>
             <section class="policy-section">
               <h4>AI summaries</h4>
@@ -709,16 +708,15 @@
               <ul>
                 <li>Google LLC: Firebase (Cloud Firestore, Cloud Functions, Cloud Messaging, Analytics, Crashlytics, Remote Config, App Check) and Google AdMob and UMP. Alert settings, votes, language requests, and feedback sent to the developer are stored and processed by Firestore and Cloud Functions in the Seoul region (asia-northeast3); analytics, crash, push, remote configuration, app integrity, and ad data may be processed in countries where Google operates facilities, including the United States.</li>
                 <li>Bytedance Pte. Ltd. (Singapore; Pangle) and Unity Technologies (United States; Unity Ads): when ads are requested, the ad data described above is sent to each company’s servers and handled under its own policy.</li>
-                <li>Telegram Messenger Inc. (United Arab Emirates; Telegram): each time you send feedback to the developer in the app, the operator’s server sends the message, plan, platform, app version, device model, OS version, app language, and a reference number for the stored feedback through the Telegram Bot API over an encrypted connection (HTTPS) to a private chat that only the operator and the operator’s own bot are in, so the developer can read and act on it right away. The device ID is not sent. This data is stored on Telegram’s servers; Telegram says it keeps chat data spread across data centers in several countries and does not name them. The chat’s auto-delete timer is set to one year, so the data is deleted within one year after it is sent. If you do not want this transfer, please send your feedback by email instead of in the app; all other features of the app keep working.</li>
                 <li>Apple: App Store payments and restores, push delivery (APNs), iCloud key-value sync, and App Attest and DeviceCheck app integrity checks. Google Play: Android payments, subscription management, and Play Integrity app integrity checks.</li>
                 <li>When and how: data is sent over encrypted connections (HTTPS) when you launch the app or use the relevant feature.</li>
-                <li>Each company’s policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from partner apps</a> · <a href="https://www.pangleglobal.com/privacy/enduser-en" target="_blank" rel="noopener noreferrer">Pangle</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener noreferrer">Unity</a> · <a href="https://telegram.org/privacy" target="_blank" rel="noopener noreferrer">Telegram</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple</a></li>
+                <li>Each company’s policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google</a> · <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses information from partner apps</a> · <a href="https://www.pangleglobal.com/privacy/enduser-en" target="_blank" rel="noopener noreferrer">Pangle</a> · <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy" target="_blank" rel="noopener noreferrer">Unity</a> · <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer">Apple</a></li>
               </ul>
             </section>
             <section class="policy-section">
               <h4>Retention period</h4>
               <p>Alert records (device ID, FCM token, alert settings, delivery history), vote answers, and language requests are kept until the operator deletes them. If you delete the app and its FCM token becomes invalid, the server clears the token and marks alerts as off, but the record itself remains.</p>
-              <p>Feedback sent to the developer is deleted automatically one year after it is sent, and the record that counts a device’s messages for the daily limit (device ID, count, and the time counting started) is deleted automatically 24 hours after counting started. Automatic deletion usually completes within a day after the deadline. The copy sent to Telegram is deleted within one year after it is sent by the chat’s one-year auto-delete timer.</p>
+              <p>Feedback sent to the developer is deleted automatically one year after it is sent, and the record that counts a device’s messages for the daily limit (device ID, count, and the time counting started) is deleted automatically 24 hours after counting started. Automatic deletion usually completes within a day after the deadline.</p>
               <p>Crashlytics crash data and associated identifiers are kept for 90 days, and Analytics user- and event-level data for up to 14 months depending on the Google Analytics setting. Firebase installation IDs are removed within 180 days after the operator requests deletion, and App Check tokens are not retained after they expire (at most 7 days). Other request rate limiting against abuse uses only a hash of your IP address, never the address itself. Data processed by ad SDKs follows each company’s policy.</p>
             </section>
             <section class="policy-section">
@@ -728,7 +726,7 @@
             <section class="policy-section">
               <h4>Your rights and choices</h4>
               <p>You can turn alerts off in the app or in your device settings, and votes, language requests, and feedback to the developer are stored only when you send them. Where consent is required, you can change your ad choices at any time under Privacy choices in Settings, and on Android you can reset or delete the advertising ID in your device’s ad settings. There is no in-app setting to turn off analytics or crash diagnostics; uninstalling the app stops collection.</p>
-              <p>You can request access to, correction, deletion, or suspension of processing of your data by email. Server data is identified only by a random device ID, not by name, so please include the device ID shown in the app’s settings (in the Settings tab under App Info on iPhone and iPad or About on Android, and in Settings &gt; About on Mac) with your request. If you ask us to delete feedback you sent, the copy sent to Telegram is deleted as well. Beyond that, we ask only for the minimum information needed to find your records and delete it promptly after handling the request. If any data must be kept by law or for security and abuse prevention, we will tell you what and for how long.</p>
+              <p>You can request access to, correction, deletion, or suspension of processing of your data by email. Server data is identified only by a random device ID, not by name, so please include the device ID shown in the app’s settings (in the Settings tab under App Info on iPhone and iPad or About on Android, and in Settings &gt; About on Mac) with your request. Beyond that, we ask only for the minimum information needed to find your records and delete it promptly after handling the request. If any data must be kept by law or for security and abuse prevention, we will tell you what and for how long.</p>
               <p>This app is not directed to children, and we do not knowingly collect personal information from children under 14.</p>
             </section>
             <section class="policy-section">
